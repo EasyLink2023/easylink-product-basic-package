@@ -2,10 +2,10 @@
     $rt = Route::currentRouteName();
 @endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="index3.html" class="brand-link">
-        <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="{{ route('admin.dashboard') }}" class="brand-link">
+        {{-- <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+        <span class="brand-text font-weight-light">{{ _get_setting_value('SITE_NAME') }}</span>
     </a>
     <div class="sidebar">
         <nav class="mt-2">
@@ -19,7 +19,7 @@
                       </p>
                     </a>
                   </li>
-                <li class="nav-item">
+                <li class="nav-item {{ $rt == 'admin.setting.index' || $rt == 'admin.setting.create' || $rt == 'admin.setting.edit' ? 'menu-is-opening menu-open active': '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
@@ -29,13 +29,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link">
+                            <a href="{{ route('admin.setting.create') }}" class="nav-link {{ $rt == 'admin.setting.create' ? 'active': '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Setting</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{ route('admin.setting.index') }}" class="nav-link {{ $rt == 'admin.setting.index' ? 'active': '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Setting</p>
                             </a>
