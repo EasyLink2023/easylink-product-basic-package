@@ -1,6 +1,6 @@
 <!-- /.content-wrapper -->
 <footer class="main-footer text-center">
-    <strong>Copyright &copy; {{ date('Y') }} <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; {{ date('Y') }} <a href="{{ url('/') }}">{{ _get_setting_value('SITE_NAME') }}</a>.</strong>
     All rights reserved.
 </footer>
 

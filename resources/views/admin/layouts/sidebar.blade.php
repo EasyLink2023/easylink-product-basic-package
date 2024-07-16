@@ -42,6 +42,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{ $rt == 'admin.menu.index' || $rt == 'admin.menu.create' || $rt == 'admin.menu.edit' ? 'menu-is-opening menu-open active': '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-list"></i>
+                        <p>
+                            Menu
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.menu.create') }}" class="nav-link {{ $rt == 'admin.menu.create' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Menu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.menu.index') }}" class="nav-link {{ $rt == 'admin.menu.index' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Menu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
