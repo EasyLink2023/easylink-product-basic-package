@@ -1,0 +1,92 @@
+/**************responsive***********/
+@media screen and (max-width: 2560px) {
+
+
+}
+
+@media screen and (max-width: 1500.98px) {
+
+}
+
+@media screen and (max-width: 1199.98px) {
+
+}
+
+@media screen and (max-width: 991.98px) {
+
+}
+
+@media screen and (max-width: 767.98px) {
+
+}
+
+@media screen and (max-width: 575.98px) {
+}
+
+@media screen and (max-width: 423.98px) {
+	
+}
+
+@media screen and (max-width: 321.98px) {
+
+}
+
+@media screen and (max-width: 285.98px) {
+}
+
+@media screen and (max-width: 736.98px) {
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #242424;
+        width: 275px;
+        text-align: center;
+        padding-top: 10px;
+        overflow-y: auto;
+        z-index: 9;
+    }
+
+    .navbar-collapse.collapsing {
+        height: 100%;
+        left: -75%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        height: 100%;
+        left: 0;
+        transition: left 400ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 400ms ease-in;
+    }
+
+    nav.navbar.navbar-expand-lg.navbar-light span.navbar-text {
+        margin-top: 22px;
+    }
+
+    ul.navbar-nav li:not(:last-child) {
+        margin-right: 0 !important;
+        border-bottom: 1px solid #404040;
+    }
+
+    header.back ul.navbar-nav li a.nav-link {
+        color: #fff !important;
+    }
+
+    ul.navbar-nav li a.nav-link {
+        font-weight: 400;
+        font-size: 15px;
+        padding: 9px 0 !important;
+    }
+
+    div#mainNav .dropdown-menu span {
+        font-size: 16px;
+    }
+}

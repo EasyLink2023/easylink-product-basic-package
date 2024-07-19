@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\generalSettingController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,9 @@ use App\Http\Controllers\Admin\MenuController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Fronend Routes
+
+Route::get('/', [FrontendController::class, 'homePage'])->name('index');
 
 Route::get('/add-admin-role', function () {
     $role = new Role;
