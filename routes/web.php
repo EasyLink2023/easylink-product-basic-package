@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\generalSettingController;
+use App\Http\Controllers\Admin\IndexPageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\FrontendController;
 
@@ -49,4 +50,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('/edit-menu/{id}', [MenuController::class, 'edit'])->name('menu.edit');
     Route::post('/update-menu', [MenuController::class, 'update'])->name('menu.update');
     Route::get('/delete-menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
+
+    //Index Page Admin Side
+    Route::get('/index-page', [IndexPageController::class, 'index'])->name('index.page.index');
+    Route::get('/index-create', [IndexPageController::class, 'create'])->name('index.page.create');
+    Route::post('/index-store', [IndexPageController::class, 'store'])->name('index.page.store');
+    Route::get('/index-edit/{id}', [IndexPageController::class, 'edit'])->name('index.page.edit');
+    Route::post('/index-update', [IndexPageController::class, 'update'])->name('index.page.update');
 });

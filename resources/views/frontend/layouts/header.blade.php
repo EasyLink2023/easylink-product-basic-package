@@ -33,7 +33,7 @@
                         Quote</button>
                 </div>
             </div>
-            <div class="top_nav">
+            {{-- <div class="top_nav">
                 <ul class="top_ul">
                     <li class="top_li">
                         <div class="dropdown">
@@ -51,7 +51,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </nav>
     </div>
 </header>

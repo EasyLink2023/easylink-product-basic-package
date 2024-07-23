@@ -136,8 +136,9 @@ $(".banner_slider").slick({
   cssEase: "linear",
 });
 jQuery(function () {
+  const val = $('#sec_two_text').val();
   jQuery(".texttyp").typed({
-    strings: ["Rigorous , Practical , Progressive and Creative"],
+    strings: [val],
     typeSpeed: 100,
     backSpeed: 50,
     showCursor: false,

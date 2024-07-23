@@ -59,28 +59,6 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="open_video" tabindex="-1" aria-labelledby="open_videoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="ratio ratio-16x9">
-                    <iframe id="modal_video" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="toast-container position-fixed top-0 end-0 p-3">
-    <div id="liveToast" class="toast align-items-center  border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
-        <div class="d-flex">
-            <div class="toast-body" id="formResponce">
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
-</div>
 <footer>
     <div class=" container">
         <div class="row">
@@ -88,8 +66,8 @@
                 <div class="footer_address">
                     <div class="footer_address_content">
                         <div class="footer_address_logo">
-                            <a href="<?php echo BASE_URL_FRONT; ?>">
-                                <img src="<?= BASE_URL ?>/<?= _get_setting_value('SITE_LOGO') ?>" alt="logo" class="img-fluid" />
+                            <a href="">
+                                <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_Logo') }}" alt="logo" class="img-fluid" />
                             </a>
                         </div>
                         <div class="footer_address">
@@ -100,14 +78,14 @@
                                             <span>
                                                 <i class="fi fi-rr-location-alt"></i>
                                             </span>
-                                            <?php _get_setting_value('ADDRESS') ?>
+                                             Address Here
                                         </li>
 
                                         <li>
                                             <span>
                                                 <i class="fi fi-rr-phone-call"></i>
                                             </span>
-                                            <a href="tel:<?php _get_setting_value('PHONE_NUMBER') ?>"><?php _get_setting_value('PHONE_NUMBER') ?></a>
+                                            <a href="tel">+985632145</a>
                                         </li>
 
                                     </ul>
@@ -116,7 +94,7 @@
                                             <span>
                                                 <i class="fi fi-rr-envelope"></i>
                                             </span>
-                                            <a href="<?php _get_setting_value('EMAIL_ADDRESS') ?>"><?php _get_setting_value('EMAIL_ADDRESS') ?></a>
+                                            <a href="">Email</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -125,35 +103,35 @@
                         <div class="footer_social">
                             <ul>
                                 <li>
-                                    <a href="<?php _get_setting_value('SOCIAL_MEDIA_TWITTER') ?>" target="_blank">
+                                    <a href="" target="_blank">
                                         <span>
-                                            <img src="<?php echo BASE_URL_FRONT; ?>/assets/image/twitter-alt-circle.svg" alt="logo" class="img-fluid" />
+                                            <img src="{{ asset('frontend/image/twitter-alt-circle.svg') }}" alt="logo twitter" class="img-fluid" />
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php _get_setting_value('SOCIAL_MEDIA_FACEBOOK') ?>" target="_blank">
+                                    <a href="" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-facebook"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php _get_setting_value('SOCIAL_MEDIA_INSTAGRAM') ?>" target="_blank">
+                                    <a href="" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-instagram"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php _get_setting_value('SOCIAL_MEDIA_LINKDEIN') ?>" target="_blank">
+                                    <a href="" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-linkedin"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php _get_setting_value('SOCIAL_MEDIA_YOUTUBE') ?>" target="_blank">
+                                    <a href="" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-youtube"></i>
                                         </span>
@@ -169,16 +147,6 @@
                     <div class="footer_links_content">
                         <span class="translate">Products</span>
                         <ul class="menu">
-                            <?php
-                            $categories = getAllitemsFromCategory('1');
-                            foreach ($categories as $cat) :
-                            ?>
-                                <li class="translate">
-                                    <a href="<?php echo BASE_URL_FRONT; ?>/product-category/<?= $cat['id'] ?>">
-                                        <?= $cat['cat_name'] ?>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -187,21 +155,6 @@
                 <div class="footer_links">
                     <div class="footer_links_content">
                         <span class="translate">Services</span>
-                        <ul class="menu translate">
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/gold-service">Gold
-                                    Service</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/order-online">Order Online</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/#">Service Outlets</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/spare-parts-support">Spare Parts Support</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -209,33 +162,7 @@
                 <div class="footer_links">
                     <div class="footer_links_content">
                         <span class="translate">About Us</span>
-                        <ul class="menu translate">
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/company-profile">
-                                    Company Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/history">
-                                    History
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/contact-us">
-                                    Contact Us
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/brand">
-                                    Brand
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/social-responsibility">
-                                    Social Responsibility
-                                </a>
-                            </li>
-                        </ul>
+                     
                     </div>
                 </div>
             </div>
@@ -253,13 +180,13 @@
                     <div class="footer_copyright_link translate">
                         <ul>
                             <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/#">Privacy Policy</a>
+                                <a href="">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/#">Terms & Conditions</a>
+                                <a href="">Terms & Conditions</a>
                             </li>
                             <li>
-                                <a href="<?php echo BASE_URL_FRONT; ?>/#">Site Map</a>
+                                <a href="">Site Map</a>
                             </li>
                         </ul>
                     </div>

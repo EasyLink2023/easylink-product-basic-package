@@ -65,6 +65,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{ $rt == 'admin.index.page.index' || $rt == 'admin.index.page.create' || $rt == 'admin.index.page.edit' ? 'menu-is-opening menu-open active': '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-list"></i>
+                        <p>
+                            Index Page 
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.index.page.create') }}" class="nav-link {{ $rt == 'admin.index.page.create' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Index Page</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.index.page.index') }}" class="nav-link {{ $rt == 'admin.index.page.index' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Index Page</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

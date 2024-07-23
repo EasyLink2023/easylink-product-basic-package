@@ -24,6 +24,7 @@
 <body>
     @include('frontend.layouts.header')
     @yield('content')
+    @include('frontend.layouts.footer')
     <script src="{{ asset('frontend/plugins/jquery/js/jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('frontend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/moment/js/moment.js') }}"></script>
