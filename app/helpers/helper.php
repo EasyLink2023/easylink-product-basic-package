@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ContactUsPage;
 use App\Models\GeneralSetting;
 use App\Models\IndexPage;
 
@@ -9,9 +10,17 @@ if(!function_exists('_get_setting_value')) {
         return $value->value ?? 'Not Avaliable';
     }
 }
+
 if(!function_exists('_get_index_page_value')) {
     function _get_index_page_value($key) {
         $value = IndexPage::where('key', $key)->first();
+        return $value->value ?? 'Lorem ipsum dolor sit amet consectetur adipisicing elit';
+    }
+}
+
+if(!function_exists('_get_contact_us_page_data')) {
+    function _get_contact_us_page_data($key) {
+        $value = ContactUsPage::where('key', $key)->first();
         return $value->value ?? 'Lorem ipsum dolor sit amet consectetur adipisicing elit';
     }
 }

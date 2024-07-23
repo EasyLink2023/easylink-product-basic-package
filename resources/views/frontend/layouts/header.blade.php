@@ -22,6 +22,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="" id="t_house">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('contact.us') }}" id="t_house">Contact Us</a>
+                    </li>
                 </ul>
             </div>
             <div class="nav_contact">
