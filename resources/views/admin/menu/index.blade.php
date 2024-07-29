@@ -57,8 +57,10 @@
                                                     <td>{{ $item->menu_name }}</td>
                                                     <td>{{ $item->url }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.menu.edit', $item->id) }}"
+                                                        <a href="{{ route('admin.page.edit',base64_encode($item->id)) }}"
                                                             class="btn btn-warning">Edit</a>
+                                                        {{-- <a href="{{ route('admin.menu.edit', $item->id) }}"
+                                                            class="btn btn-warning">Edit</a> --}}
                                                         <a href="{{ route('admin.menu.destroy', $item->id) }}"
                                                             class="btn btn-danger">Delete</a>
                                                     </td>

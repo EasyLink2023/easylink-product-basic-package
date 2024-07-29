@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.menu.index' || $rt == 'admin.menu.create' || $rt == 'admin.menu.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li class="nav-item {{ $rt == 'admin.menu.index' || $rt == 'admin.menu.create' || $rt == 'admin.menu.edit' || $rt == 'admin.page.edit' ? 'menu-is-opening menu-open active': '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-list"></i>
                         <p>

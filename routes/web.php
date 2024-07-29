@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\ContactUsPageController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\generalSettingController;
-use App\Http\Controllers\Admin\IndexPageController;
-use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\IndexPageController;
+use App\Http\Controllers\Admin\ContactUsPageController;
+use App\Http\Controllers\Admin\generalSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,8 @@ use App\Http\Controllers\FrontendController;
 
 //Fronend Routes
 
-Route::get('/', [FrontendController::class, 'homePage'])->name('index');
-Route::get('/contact-us', [FrontendController::class, 'contactUsPage'])->name('contact.us');
+Route::get('/{page?}', [FrontendController::class, 'homePage'])->name('index');
+// Route::get('/contact-us', [FrontendController::class, 'contactUsPage'])->name('contact.us');
 
 Route::get('/add-admin-role', function () {
     $role = new Role;
@@ -66,4 +67,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::post('/contact-store', [ContactUsPageController::class, 'store'])->name('contact.page.store');
     Route::get('/contact-edit/{id}', [ContactUsPageController::class, 'edit'])->name('contact.page.edit');
     Route::post('/contact-update', [ContactUsPageController::class, 'update'])->name('contact.page.update');
+    
+    //Menu pages update
+    Route::get('/menu-page-edit/{id}', [PagesController::class, 'editPage'])->name('page.edit');
+    Route::post('/menu-page-update', [PagesController::class, 'updatePage'])->name('page.update');
+    
 });

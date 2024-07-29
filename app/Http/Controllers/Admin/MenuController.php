@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Menu;
+use App\Events\MenuCreated;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Pages;
 
 class MenuController extends Controller
 {
@@ -28,7 +30,8 @@ class MenuController extends Controller
             $menu->menu_name = $request->menu_name;
             $menu->url = Str::slug($request->menu_name);
             $menu->save();
-            return redirect()->back()->with('success','Menu Saved Successfully');
+            event(new MenuCreated($menu));
+           return redirect()->back()->with('success','Menu Saved Successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
@@ -51,7 +54,17 @@ class MenuController extends Controller
     }
 
     public function destroy($id) {
-        $data= Menu::find($id);
+        $data = Menu::find($id);
+        if($data) {
+            $new_page = Pages::where('menu_id', $data->id)->first();
+            $page = Pages::find($new_page->id);
+            $page_name = str_replace(' ', '_', $data->menu_name);
+            $viewPath = resource_path('views/frontend/pages/' . strtolower($page_name) . '.blade.php');
+            if (file_exists($viewPath)) {
+                unlink($viewPath);
+            }
+            $page->delete();
+        }
         $data->delete();
         return redirect()->back()->with('success','Menu Deleted Successfully');
     }
