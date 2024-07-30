@@ -58,6 +58,11 @@
                             @endforeach
                         @endif
                     </div>
+                    @if ($blogs->hasPages())
+                        <div class="pagination-wrapper d-flex justify-content-center mt-5">
+                            {{ $blogs->links() }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

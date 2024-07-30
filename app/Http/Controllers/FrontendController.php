@@ -19,7 +19,7 @@ class FrontendController extends Controller
         } else if ($page == 'login') {
             return view('auth.login');
         } else if ($page == 'blog') {
-            $data['blogs'] = Blogs::orderBy('id', 'desc')->get();
+            $data['blogs'] = Blogs::orderBy('id', 'desc')->paginate(9);
             return view('frontend.blog', $data);
         } else {
             $menu = Menu::where('url', $page)->first();
