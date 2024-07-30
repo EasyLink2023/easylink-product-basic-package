@@ -12,8 +12,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg" id="main_navbar">
             <a class="navbar-brand" href="{{ route('index')  }}">
-                <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_Logo') }}" class="img-fluid"
-                    id="logo" alt="logo" />
+                <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}" class="img-fluid"
+                    id="logo" alt="logo" onerror="this.src='{{ asset('frontend/default-images/default-image-329x129.jpg') }}'" />
             </a>
             <div class="menu-btn d-lg-none navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,16 +22,19 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('index') }}" id="t_house">Home</a>
+                        <a class="nav-link active" href="{{ route('index') }}">Home</a>
                     </li>
                     @foreach (_get_all_menu() as $item)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('index', $item->url) }}"
-                                id="t_house">{{ $item->menu_name }}</a>
+                                >{{ $item->menu_name }}</a>
                         </li>
                     @endforeach
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index','contact-us') }}" id="t_house">Contact Us</a>
+                        <a class="nav-link" href="{{ route('index','blog') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('index','contact-us') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>

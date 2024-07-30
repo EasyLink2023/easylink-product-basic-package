@@ -90,8 +90,8 @@
     <script src="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         $(function() {
-            $('#summernote').summernote()
-        })
+            $('#summernote').summernote();
+        });
     </script>
     <script>
         $(function() {

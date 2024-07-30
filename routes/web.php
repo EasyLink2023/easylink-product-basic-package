@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ use App\Http\Controllers\Admin\generalSettingController;
 //Fronend Routes
 
 Route::get('/{page?}', [FrontendController::class, 'homePage'])->name('index');
-// Route::get('/contact-us', [FrontendController::class, 'contactUsPage'])->name('contact.us');
+Route::get('/blog/{slug}', [FrontendController::class, 'blogDeatil'])->name('blog.detail');
 
 Route::get('/add-admin-role', function () {
     $role = new Role;
@@ -72,4 +73,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('/menu-page-edit/{id}', [PagesController::class, 'editPage'])->name('page.edit');
     Route::post('/menu-page-update', [PagesController::class, 'updatePage'])->name('page.update');
     
+    //Blogs route
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/add-blog', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/save-blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/edit-blog/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('/update-blog', [BlogController::class, 'update'])->name('blog.update');
+    Route::get('/delete-blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });

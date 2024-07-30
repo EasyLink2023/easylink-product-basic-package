@@ -111,6 +111,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{ $rt == 'admin.blog.index' || $rt == 'admin.blog.create' || $rt == 'admin.blog.edit' || $rt == 'admin.blog.edit' ? 'menu-is-opening menu-open active': '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-list"></i>
+                        <p>
+                            Blog
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.blog.create') }}" class="nav-link {{ $rt == 'admin.blog.create' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Blog</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ $rt == 'admin.blog.index' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Blog</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

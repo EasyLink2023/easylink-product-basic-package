@@ -89,45 +89,44 @@
             </div>
         </div>
     @endif
-    <div class="products">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="products_title">
-                        <h3>Products</h3>
+    @if (_get_index_page_value('SEC_4_VISIBLE') == '1')
+        <div class="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="news_title">
+                            <h5>Blogs</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            @if (isset($blogs) && count($blogs) > 0)
+                                @foreach ($blogs as $item)
+                                    <div class="col-md-4 mb-4">
+                                        <a href="{{ route('blog.detail', $item->slug) }}">
+                                            <div class="news_items">
+                                                <div class="news_item_image">
+                                                    <img src="{{ asset('asset/blogs') . '/' . $item->cover_image }}"
+                                                        class="img-fluid" alt="{{ $item->cover_image }}"
+                                                        onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
+                                                </div>
+                                                <div class="news_item_content">
+                                                    <span>{{ $item->created_at }}</span>
+                                                    <h4>
+                                                        {{ Str::limit($item->title, 10, '...') }}
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="solutions">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="solutions_title">
-                        <h4>XCMG Solutions</h4>
-                        <p>
-                            Complete set of solutions Global trusted engineering equipment
-                            solution service provider!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="news">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="news_title">
-                        <h5>News & Events</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endif
     <div class="testimonial">
         <div class="container">
             <div class="row justify-content-center">
