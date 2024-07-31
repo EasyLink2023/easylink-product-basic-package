@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blogs;
 use App\Models\Menu;
 use App\Models\Pages;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,6 +14,7 @@ class FrontendController extends Controller
     {
         if (!$page) {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->get()->take(3);
+            $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
             return view('frontend.index', $data);
         } else if ($page == 'contact-us') {
             return view('frontend.contact-us');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 30, 2024 at 03:42 PM
+-- Generation Time: Jul 31, 2024 at 08:44 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -48,8 +48,6 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `meta_title`, `meta_description`, `meta_keyword`, `cover_image`, `tags`, `title`, `slug`, `content`, `created_by`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Incidunt mollit omn', 'Sed quo fuga Ea bea', 'Placeat labore sit', '1722328552.png', 'Eos error exercitat', 'Consequuntur fugit', 'consequuntur-fugit', '<b>Nam ratione debitis .</b>', 'Sint est sit dignis', '1', '2024-07-30 03:05:52', '2024-07-30 03:05:52'),
-(2, 'Minus id eiusmod id', 'Odit ad aute aut fug', 'Consequuntur quis en', '1722329243.png', 'Inventore nemo archi', 'Ab commodo dolores i', 'ab-commodo-dolores-i', NULL, 'Earum nulla rerum qu', '1', '2024-07-30 03:17:23', '2024-07-30 03:17:23'),
 (3, 'test title', 'test dscription', 'Placeat labore sit', '1722349295.png', 'Eos error exercitat', 'Consequuntur fugit', 'consequuntur-fugit', '<b>Nam ratione debitis .</b>', 'Sint est sit dignis', '1', '2024-07-30 08:50:38', '2024-07-30 08:51:35'),
 (4, 'Enim sint assumenda', 'Itaque in est commod', 'Eius et fugiat odit', '1722352407.png', 'Dolore explicabo Re', 'Vel molestiae evenie', 'vel-molestiae-evenie', NULL, 'Accusantium reiciend', '1', '2024-07-30 09:43:27', '2024-07-30 09:43:27'),
 (5, 'Quasi commodi perfer', 'Dolore adipisicing m', 'Qui eos ipsa dolor', '1722352419.jpg', 'Sit pariatur Recusa', 'Incididunt tenetur u', 'incididunt-tenetur-u', NULL, 'Architecto Nam sapie', '1', '2024-07-30 09:43:39', '2024-07-30 09:43:39');
@@ -166,7 +164,8 @@ INSERT INTO `index_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `cre
 (18, 'SEC_3_TEXT_3', 'Lorem ipsum dolor si', '1', '1', '2024-07-23 07:26:38', '2024-07-23 07:26:38'),
 (19, 'SEC_3_NUMBER_4', '93', '1', '1', '2024-07-23 07:26:58', '2024-07-23 07:26:58'),
 (20, 'SEC_3_TEXT_4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel', '1', '1', '2024-07-23 07:27:23', '2024-07-23 07:27:23'),
-(21, 'SEC_4_VISIBLE', '1', '3', '1', '2024-07-30 10:06:59', '2024-07-30 10:06:59');
+(21, 'SEC_4_VISIBLE', '1', '3', '1', '2024-07-30 10:06:59', '2024-07-30 10:06:59'),
+(22, 'TESTIMONIAL_VISIBLE', '1', '3', '1', '2024-07-31 02:53:14', '2024-07-31 02:59:35');
 
 -- --------------------------------------------------------
 
@@ -218,7 +217,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2024_07_19_173126_create_index_pages_table', 4),
 (15, '2024_07_23_142854_create_contact_us_pages_table', 5),
 (17, '2024_07_24_125605_create_pages_table', 6),
-(20, '2024_07_30_072206_create_blogs_table', 7);
+(20, '2024_07_30_072206_create_blogs_table', 7),
+(21, '2024_07_31_070520_create_testimonials_table', 8);
 
 -- --------------------------------------------------------
 
@@ -308,6 +308,31 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `role_name`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 1, '2024-07-12 02:23:13', '2024-07-12 02:23:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rating` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feedback` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `name`, `designation`, `rating`, `profile_image`, `feedback`, `created_at`, `updated_at`) VALUES
+(1, 'Cassandra Watson', 'Voluptas voluptatem', '5', '1722413978.png', 'Velit alias velit l ehj nkjfndjafo njdfnoij fjndm fjdsfids nfmsdf sif nsdnf uf sndfm dfjs dfndf sdf dnsn djfniod fiod fkosdjf iod jsf', '2024-07-31 02:49:38', '2024-07-31 02:49:38'),
+(3, 'Marny Glover', 'Quia id rerum veniam', '3', '1722414870.png', 'Suscipit consequatur', '2024-07-31 03:04:30', '2024-07-31 03:04:30');
 
 -- --------------------------------------------------------
 
@@ -414,6 +439,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -452,7 +483,7 @@ ALTER TABLE `general_settings`
 -- AUTO_INCREMENT for table `index_pages`
 --
 ALTER TABLE `index_pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -464,7 +495,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -483,6 +514,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

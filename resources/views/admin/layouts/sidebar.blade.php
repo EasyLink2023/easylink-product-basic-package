@@ -134,6 +134,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{ $rt == 'admin.testimonial.index' || $rt == 'admin.testimonial.create' || $rt == 'admin.testimonial.edit' || $rt == 'admin.testimonial.edit' ? 'menu-is-opening menu-open active': '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-list"></i>
+                        <p>
+                            Testimonial
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.testimonial.create') }}" class="nav-link {{ $rt == 'admin.testimonial.create' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Testimonial</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.testimonial.index') }}" class="nav-link {{ $rt == 'admin.testimonial.index' ? 'active': '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Testimonial</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

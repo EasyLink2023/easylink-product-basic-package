@@ -127,100 +127,50 @@
             </div>
         </div>
     @endif
-    <div class="testimonial">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="testimonial_title">
-                        <h6>TESTIMONIALS</h6>
+    @if (_get_index_page_value('TESTIMONIAL_VISIBLE') == '1')
+        <div class="testimonial">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="testimonial_title">
+                            <h6>TESTIMONIALS</h6>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="testimonial_slider_box">
-                        <div class="testimonial_slider_item">
-                            <div class="testimonial_slider_item_image_box">
-                                <div class="testimonial_slider_item_image">
-                                    <img src="{{ asset('frontend/image/c1.jpg') }}" class="img-fluid" alt="" />
-                                </div>
-                                <button type="button" class="video-btn" data-bs-toggle="modal"
-                                    data-src="https://www.xcmg.com/en-ap/upload/media/2020/11/02/16a525fb4a8c4752bfb593a197abc902.mp4"
-                                    data-bs-target="#videoModal">
-                                    <i class="fi fi-rr-play"></i>
-                                </button>
-                            </div>
-                            <div class="testimonial_slider_item_content">
-                                <span>David,operator of USA's NEFF</span>
-                                <ul class="stars">
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                </ul>
-                                <p>
-                                    I've been using XCMG equipment for years and I'm
-                                    reallyimpressed by their reliability and ability to handle
-                                    anything you can throw at them， especially their
-                                    excavators; they're great machines.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="testimonial_slider_item">
-                            <div class="testimonial_slider_item_image_box">
-                                <div class="testimonial_slider_item_image">
-                                    <img src="{{ asset('frontend/image/c2.jpg') }}" class="img-fluid" alt="" />
-                                </div>
-                                <button type="button" class="video-btn" data-bs-toggle="modal"
-                                    data-src="https://www.xcmg.com/en-ap/upload/media/2020/11/02/16a525fb4a8c4752bfb593a197abc902.mp4"
-                                    data-bs-target="#videoModal">
-                                    <i class="fi fi-rr-play"></i>
-                                </button>
-                            </div>
-                            <div class="testimonial_slider_item_content">
-                                <span>Olga Nosal,operator at Poland's STEB</span>
-                                <ul class="stars">
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                </ul>
-                                <p>
-                                    XCMG provides timely and reliable services and its equipment
-                                    is of high stability. As an operator, I enjoy operating XCMG
-                                    machinery.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="testimonial_slider_item">
-                            <div class="testimonial_slider_item_image_box">
-                                <div class="testimonial_slider_item_image">
-                                    <img src="{{ asset('frontend/image/c3.jpg') }}" class="img-fluid" alt="" />
-                                </div>
-                                <button type="button" class="video-btn" data-bs-toggle="modal"
-                                    data-src="https://www.xcmg.com/en-ap/upload/media/2020/11/02/16a525fb4a8c4752bfb593a197abc902.mp4"
-                                    data-bs-target="#videoModal">
-                                    <i class="fi fi-rr-play"></i>
-                                </button>
-                            </div>
-                            <div class="testimonial_slider_item_content">
-                                <span>Nada, Russian dealer</span>
-                                <ul class="stars">
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                    <li><i class="fi fi-sr-star"></i></li>
-                                </ul>
-                                <p>
-                                    It's always a pleasure to work with XCMG as they provide
-                                    outstanding service， timely delivery and reliable products.
-                                </p>
-                            </div>
+                    <div class="col-md-8">
+                        <div class="testimonial_slider_box">
+                            @isset($testimonials)
+                                @foreach ($testimonials as $item)
+                                    <div class="testimonial_slider_item">
+                                        <div class="testimonial_slider_item_image_box">
+                                            <div class="testimonial_slider_item_image">
+                                                <img src="{{ asset('asset/testimonial') . '/' . $item->profile_image }}"
+                                                    alt="{{ $item->profile_image }}" class="img-fluid"
+                                                    onerror="this.src='{{ asset('frontend/default-images/default-image-140x140.png') }}'" />
+                                            </div>
+                                            {{-- <button type="button" class="video-btn" data-bs-toggle="modal"
+                                                data-src="https://www.xcmg.com/en-ap/upload/media/2020/11/02/16a525fb4a8c4752bfb593a197abc902.mp4"
+                                                data-bs-target="#videoModal">
+                                                <i class="fi fi-rr-play"></i>
+                                            </button> --}}
+                                        </div>
+                                        <div class="testimonial_slider_item_content">
+                                            <span>{{ $item->name }}, {{ $item->designation }}</span>
+                                            <ul class="stars">
+                                                @for ($i = 0; $i < $item->rating; $i++)
+                                                    <li><i class="fi fi-sr-star"></i></li>
+                                                @endfor
+                                            </ul>
+                                            <p>
+                                                {{ $item->feedback }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endisset
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 @endsection

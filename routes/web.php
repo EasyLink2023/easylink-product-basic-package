@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\IndexPageController;
 use App\Http\Controllers\Admin\ContactUsPageController;
 use App\Http\Controllers\Admin\generalSettingController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,4 +81,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('/edit-blog/{id}', [BlogController::class, 'edit'])->name('blog.edit');
     Route::post('/update-blog', [BlogController::class, 'update'])->name('blog.update');
     Route::get('/delete-blog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
+    //Blogs route
+    Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial.index');
+    Route::get('/add-testimonial', [TestimonialController::class, 'create'])->name('testimonial.create');
+    Route::post('/save-testimonial', [TestimonialController::class, 'store'])->name('testimonial.store');
+    Route::get('/edit-testimonial/{id}', [TestimonialController::class, 'edit'])->name('testimonial.edit');
+    Route::post('/update-testimonial', [TestimonialController::class, 'update'])->name('testimonial.update');
+    Route::get('/delete-testimonial/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
 });
