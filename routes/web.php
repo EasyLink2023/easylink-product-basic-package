@@ -29,6 +29,9 @@ use App\Http\Controllers\Admin\TestimonialController;
 Route::get('/{page?}', [FrontendController::class, 'homePage'])->name('index');
 Route::get('/blog/{slug}', [FrontendController::class, 'blogDeatil'])->name('blog.detail');
 
+Route::post('/add-quote', [FrontendController::class, 'addQuote'])->name('add.quote');
+Route::post('/add-contact-form', [FrontendController::class, 'addContactForm'])->name('add.contact.form');
+
 Route::get('/add-admin-role', function () {
     $role = new Role;
     $role->role_name = 'admin';
@@ -89,4 +92,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('/edit-testimonial/{id}', [TestimonialController::class, 'edit'])->name('testimonial.edit');
     Route::post('/update-testimonial', [TestimonialController::class, 'update'])->name('testimonial.update');
     Route::get('/delete-testimonial/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+
+    //get all quotes list
+    Route::get('/all-quotes', [DashboardController::class, 'allQuotes'])->name('quotes.index');
+    Route::get('/all-contact-form', [DashboardController::class, 'allContactFormData'])->name('contact-form.index');
 });

@@ -9,40 +9,62 @@
     </a>
     <div class="sidebar">
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ $rt == 'admin.dashboard' ? 'active': '' }}">
-                      <i class="nav-icon fas fa-tachometer-alt"></i>
-                      <p>
-                        Dashboard
-                      </p>
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="nav-link {{ $rt == 'admin.dashboard' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
                     </a>
-                  </li>
-                <li class="nav-item {{ $rt == 'admin.setting.index' || $rt == 'admin.setting.create' || $rt == 'admin.setting.edit' ? 'menu-is-opening menu-open active': '' }}">
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.quotes.index') }}"
+                        class="nav-link {{ $rt == 'admin.quotes.index' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            All Quotes Request
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact-form.index') }}"
+                        class="nav-link {{ $rt == 'admin.contact-form.index' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            All Contact Us Page Form
+                        </p>
+                    </a>
+                </li>
+                <li
+                    class="nav-item {{ $rt == 'admin.setting.index' || $rt == 'admin.setting.create' || $rt == 'admin.setting.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                             Setting
+                            Setting
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.setting.create') }}" class="nav-link {{ $rt == 'admin.setting.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.setting.create') }}"
+                                class="nav-link {{ $rt == 'admin.setting.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Setting</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.setting.index') }}" class="nav-link {{ $rt == 'admin.setting.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.setting.index') }}"
+                                class="nav-link {{ $rt == 'admin.setting.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Setting</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.menu.index' || $rt == 'admin.menu.create' || $rt == 'admin.menu.edit' || $rt == 'admin.page.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li
+                    class="nav-item {{ $rt == 'admin.menu.index' || $rt == 'admin.menu.create' || $rt == 'admin.menu.edit' || $rt == 'admin.page.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-list"></i>
                         <p>
@@ -52,43 +74,49 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.menu.create') }}" class="nav-link {{ $rt == 'admin.menu.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.menu.create') }}"
+                                class="nav-link {{ $rt == 'admin.menu.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Menu</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.menu.index') }}" class="nav-link {{ $rt == 'admin.menu.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.menu.index') }}"
+                                class="nav-link {{ $rt == 'admin.menu.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Menu</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.index.page.index' || $rt == 'admin.index.page.create' || $rt == 'admin.index.page.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li
+                    class="nav-item {{ $rt == 'admin.index.page.index' || $rt == 'admin.index.page.create' || $rt == 'admin.index.page.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
-                            Index Page 
+                            Index Page
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.index.page.create') }}" class="nav-link {{ $rt == 'admin.index.page.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.index.page.create') }}"
+                                class="nav-link {{ $rt == 'admin.index.page.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Index Page</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.index.page.index') }}" class="nav-link {{ $rt == 'admin.index.page.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.index.page.index') }}"
+                                class="nav-link {{ $rt == 'admin.index.page.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Index Page</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.contact.page.index' || $rt == 'admin.contact.page.create' || $rt == 'admin.contact.page.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li
+                    class="nav-item {{ $rt == 'admin.contact.page.index' || $rt == 'admin.contact.page.create' || $rt == 'admin.contact.page.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-phone"></i>
                         <p>
@@ -98,22 +126,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.contact.page.create') }}" class="nav-link {{ $rt == 'admin.contact.page.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.contact.page.create') }}"
+                                class="nav-link {{ $rt == 'admin.contact.page.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Contact Us Page</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.contact.page.index') }}" class="nav-link {{ $rt == 'admin.contact.page.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.contact.page.index') }}"
+                                class="nav-link {{ $rt == 'admin.contact.page.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Contact Us Page</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.blog.index' || $rt == 'admin.blog.create' || $rt == 'admin.blog.edit' || $rt == 'admin.blog.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li
+                    class="nav-item {{ $rt == 'admin.blog.index' || $rt == 'admin.blog.create' || $rt == 'admin.blog.edit' || $rt == 'admin.blog.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-list"></i>
+                        <i class="nav-icon fa fa-book"></i>
                         <p>
                             Blog
                             <i class="right fas fa-angle-left"></i>
@@ -121,22 +152,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog.create') }}" class="nav-link {{ $rt == 'admin.blog.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.blog.create') }}"
+                                class="nav-link {{ $rt == 'admin.blog.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Blog</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ $rt == 'admin.blog.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.blog.index') }}"
+                                class="nav-link {{ $rt == 'admin.blog.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Blog</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ $rt == 'admin.testimonial.index' || $rt == 'admin.testimonial.create' || $rt == 'admin.testimonial.edit' || $rt == 'admin.testimonial.edit' ? 'menu-is-opening menu-open active': '' }}">
+                <li
+                    class="nav-item {{ $rt == 'admin.testimonial.index' || $rt == 'admin.testimonial.create' || $rt == 'admin.testimonial.edit' || $rt == 'admin.testimonial.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-list"></i>
+                        <i class="nav-icon fa fa-comments"></i>
                         <p>
                             Testimonial
                             <i class="right fas fa-angle-left"></i>
@@ -144,13 +178,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.testimonial.create') }}" class="nav-link {{ $rt == 'admin.testimonial.create' ? 'active': '' }}">
+                            <a href="{{ route('admin.testimonial.create') }}"
+                                class="nav-link {{ $rt == 'admin.testimonial.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Testimonial</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.testimonial.index') }}" class="nav-link {{ $rt == 'admin.testimonial.index' ? 'active': '' }}">
+                            <a href="{{ route('admin.testimonial.index') }}"
+                                class="nav-link {{ $rt == 'admin.testimonial.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Testimonial</p>
                             </a>

@@ -35,12 +35,33 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (Session::has('error-contact'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('error-contact') }}
+                        </div>
+                    @endif
+                    @if (Session::has('success-contact'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success-contact') }}
+                        </div>
+                    @endif
                     <div class="order_online_title">
                         <h2>{{ _get_contact_us_page_data('SEC_2_FORM_TEXT') }}</h2>
                     </div>
                     <div class="order_online_form">
                         <div class="getquote_form_box">
-                            <form class="row justify-content-center g-3 needs-validation" novalidate>
+                            <form action="{{ route('add.contact.form') }}" method="POST"
+                                class="row justify-content-center g-3 needs-validation" novalidate>
+                                @csrf
                                 <div class="col-md-4">
                                     <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="name" id="Name"
@@ -69,10 +90,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="Message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="Message" rows="2" placeholder="Your Message"></textarea>
+                                    <textarea class="form-control" name="message" id="Message" rows="2" placeholder="Your Message"></textarea>
                                 </div>
-                                <input type="text" id="Product-Category" value="NA" hidden>
-                                <input type="text" id="Product-Model" value="NA" hidden>
                                 <button id="fromSubmit" type="submit">Submit</button>
                             </form>
                         </div>

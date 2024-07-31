@@ -1,6 +1,17 @@
 <!-- Modal -->
-<div class="modal fade" id="getquote" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="getquoteLabel" aria-hidden="true">
+<div class="modal fade" id="getquote" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="getquoteLabel" aria-hidden="true">
     <div class="modal-dialog">
+        @if (Session::has('error'))
+            <div class="alert alert-danger">
+                {{ Session::get('error') }}
+            </div>
+        @endif
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="getquoteLabel">Get Quote</h5>
@@ -8,49 +19,35 @@
             </div>
             <div class="modal-body">
                 <div class="getquote_form_box">
-                    <form class="needs-validation2" novalidate>
+                    <form action="{{ route('add.quote') }}" method="POST" class="needs-validation2" novalidate>
+                        @csrf
                         <div class="mb-3">
                             <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="name" id="Name2" placeholder="Name" required>
+                            <input type="text" class="form-control" name="name" id="Name2" placeholder="Name"
+                                required>
                             <div class="invalid-feedback">
                                 Please enter your name.
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="Email" class="form-label">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" name="email" id="Email2" placeholder="Email" required>
+                            <input type="email" class="form-control" name="email" id="Email2" placeholder="Email"
+                                required>
                             <div class="invalid-feedback">
                                 Please enter your email.
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="Phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="phone" id="Phone2" placeholder="Phone" required>
+                            <input type="text" class="form-control" name="phone" id="Phone2" placeholder="Phone"
+                                required>
                             <div class="invalid-feedback">
                                 Please enter your phone no.
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="Product-Category" class="form-label">Product Category <span class="text-danger">*</span></label>
-                            <select class="form-select" name="product_category" id="Product-Category2" required>
-                                <option hidden value="">Product-Category</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select Product Category.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Product-Model" class="form-label">Product Model <span class="text-danger">*</span></label>
-                            <select class="form-select" name="product_modal" id="Product-Model2" required>
-                                <option hidden value="">Select Product Category</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select Product Model.
-                            </div>
-                        </div>
-                        <div class="mb-3">
                             <label for="Message" class="form-label">Message</label>
-                            <textarea class="form-control" id="Message2" rows="2" placeholder="Your Message"></textarea>
+                            <textarea class="form-control" name="message" id="Message2" rows="2" placeholder="Your Message"></textarea>
                         </div>
                         <button id="fromSubmit2" type="submit">Submit</button>
                     </form>
@@ -62,12 +59,13 @@
 <footer>
     <div class=" container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-xl-0">
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-xl-0">
                 <div class="footer_address">
                     <div class="footer_address_content">
                         <div class="footer_address_logo">
                             <a href="">
-                                <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_Logo') }}" alt="logo" class="img-fluid" />
+                                <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}"
+                                    alt="logo" class="img-fluid" />
                             </a>
                         </div>
                         <div class="footer_address">
@@ -78,14 +76,15 @@
                                             <span>
                                                 <i class="fi fi-rr-location-alt"></i>
                                             </span>
-                                             Address Here
+                                            {{ _get_setting_value('ADDRESS') }}
                                         </li>
 
                                         <li>
                                             <span>
                                                 <i class="fi fi-rr-phone-call"></i>
                                             </span>
-                                            <a href="tel">+985632145</a>
+                                            <a
+                                                href="tel:{{ _get_setting_value('PHONE_NUMBER') }}">{{ _get_setting_value('PHONE_NUMBER') }}</a>
                                         </li>
 
                                     </ul>
@@ -94,7 +93,8 @@
                                             <span>
                                                 <i class="fi fi-rr-envelope"></i>
                                             </span>
-                                            <a href="">Email</a>
+                                            <a
+                                                href="mailto:{{ _get_setting_value('EMAIL_ADDRESS') }}">{{ _get_setting_value('EMAIL_ADDRESS') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -103,35 +103,36 @@
                         <div class="footer_social">
                             <ul>
                                 <li>
-                                    <a href="" target="_blank">
+                                    <a href="{{ _get_setting_value('X_LINK') }}" target="_blank">
                                         <span>
-                                            <img src="{{ asset('frontend/image/twitter-alt-circle.svg') }}" alt="logo twitter" class="img-fluid" />
+                                            <img src="{{ asset('frontend/image/twitter-alt-circle.svg') }}"
+                                                alt="logo twitter" class="img-fluid" />
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">
+                                    <a href="{{ _get_setting_value('FACEBOOK_LINK') }}" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-facebook"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">
+                                    <a href="{{ _get_setting_value('INSTAGRAM_LINK') }}" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-instagram"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">
+                                    <a href="{{ _get_setting_value('LINKEDIN_LINK') }}" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-linkedin"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">
+                                    <a href="{{ _get_setting_value('YOUTUBE_LINK') }}" target="_blank">
                                         <span>
                                             <i class="fi fi-brands-youtube"></i>
                                         </span>
@@ -142,27 +143,32 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-lg-0">
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
                 <div class="footer_links">
                     <div class="footer_links_content">
-                        <span class="translate">Products</span>
+                        <span class="translate">Company</span>
                         <ul class="menu">
+                            <li>
+                                <a href="{{ route('index', 'blog') }}">Blog</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('index', 'contact-us') }}">Contact Us</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
                 <div class="footer_links">
                     <div class="footer_links_content">
-                        <span class="translate">Services</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer_links">
-                    <div class="footer_links_content">
-                        <span class="translate">About Us</span>
-                     
+                        <span class="translate">About</span>
+                        <ul class="menu">
+                            @foreach (_get_all_menu() as $item)
+                                <li>
+                                    <a href="{{ route('index', $item->url) }}">{{ $item->menu_name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -170,14 +176,13 @@
                 <div class="footer_copyright">
                     <div class="footer_copyright_content translate">
                         <p>
-                            Copyright © <?php echo date("Y"); ?>. All Rights Reserved XCMG India | Design and
-                            Developed by
+                            Copyright © <?php echo date('Y'); ?>. {{ _get_setting_value('FOOTER_TEXT') }}
                             <a href="https://easylinkindia.com/" target="_blank">
                                 Easy Link
                             </a>
                         </p>
                     </div>
-                    <div class="footer_copyright_link translate">
+                    {{-- <div class="footer_copyright_link translate">
                         <ul>
                             <li>
                                 <a href="">Privacy Policy</a>
@@ -189,7 +194,7 @@
                                 <a href="">Site Map</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

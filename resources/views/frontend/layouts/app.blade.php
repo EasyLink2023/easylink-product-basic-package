@@ -32,5 +32,16 @@
     <script src="{{ asset('frontend/plugins/select_bootstrap/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/typed/js/typed.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(Session::has('modal'))
+                var myModal = new bootstrap.Modal(document.getElementById('getquote'), {
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                myModal.show();
+            @endif
+        });
+    </script>
 </body>
 </html>

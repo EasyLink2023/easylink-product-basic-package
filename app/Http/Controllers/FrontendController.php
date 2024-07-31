@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blogs;
+use App\Models\ContactUsPageForm;
+use App\Models\GetQuote;
 use App\Models\Menu;
 use App\Models\Pages;
 use App\Models\Testimonial;
@@ -46,5 +48,41 @@ class FrontendController extends Controller
     {
         $data['blog'] = Blogs::where('slug', $slug)->first();
         return view('frontend.blog-detail', $data);
+    }
+
+    public function addQuote(Request $request)
+    {
+        try {
+            $add = new GetQuote;
+            $add->name = $request->name;
+            $add->email = $request->email;
+            $add->phone = $request->phone;
+            $add->message = $request->message;
+            $add->save();
+            return redirect()->back()->with(['success' => 'Get Quote Request Added Successfully', 'modal' => true]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with(['error' => $th->getMessage(), 'modal' => true]);
+        }
+    }
+    public function addContactForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string|max:1000',
+        ]);
+        
+        try {
+            $add = new ContactUsPageForm;
+            $add->name = $request->name;
+            $add->email = $request->email;
+            $add->phone = $request->phone;
+            $add->message = $request->message;
+            $add->save();
+            return redirect()->back()->with(['success-contact' => 'Contact Us Request Added Successfully']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with(['error-contact' => $th->getMessage()]);
+        }
     }
 }
