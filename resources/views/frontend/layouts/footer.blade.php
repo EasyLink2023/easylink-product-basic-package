@@ -12,6 +12,15 @@
                 {{ Session::get('success') }}
             </div>
         @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="getquoteLabel">Get Quote</h5>
@@ -19,7 +28,8 @@
             </div>
             <div class="modal-body">
                 <div class="getquote_form_box">
-                    <form action="{{ route('add.quote') }}" method="POST" class="needs-validation2" novalidate>
+                    <form action="{{ route('add.quote') }}" method="POST" class="needs-validation2"
+                        id="getQuoateForm">
                         @csrf
                         <div class="mb-3">
                             <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
@@ -32,7 +42,7 @@
                         <div class="mb-3">
                             <label for="Email" class="form-label">Email <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" name="email" id="Email2" placeholder="Email"
-                                required>
+                            required>
                             <div class="invalid-feedback">
                                 Please enter your email.
                             </div>
@@ -40,7 +50,7 @@
                         <div class="mb-3">
                             <label for="Phone" class="form-label">Phone <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="phone" id="Phone2" placeholder="Phone"
-                                required>
+                            required>
                             <div class="invalid-feedback">
                                 Please enter your phone no.
                             </div>

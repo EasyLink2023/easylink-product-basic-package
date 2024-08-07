@@ -60,7 +60,7 @@
                     <div class="order_online_form">
                         <div class="getquote_form_box">
                             <form action="{{ route('add.contact.form') }}" method="POST"
-                                class="row justify-content-center g-3 needs-validation" novalidate>
+                                class="row justify-content-center g-3 needs-validation">
                                 @csrf
                                 <div class="col-md-4">
                                     <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
