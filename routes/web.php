@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\IndexPageController;
 use App\Http\Controllers\Admin\ContactUsPageController;
 use App\Http\Controllers\Admin\generalSettingController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Models\Admin\SeoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/blog/{slug}', [FrontendController::class, 'blogDeatil'])->name('blo
 
 Route::post('/add-quote', [FrontendController::class, 'addQuote'])->name('add.quote');
 Route::post('/add-contact-form', [FrontendController::class, 'addContactForm'])->name('add.contact.form');
+
+// Route::get('/sitemap', [FrontendController::class, 'generateSiteMap'])->name('generate.sitemap');
 
 Route::get('/add-admin-role', function () {
     $role = new Role;
@@ -96,4 +99,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     //get all quotes list
     Route::get('/all-quotes', [DashboardController::class, 'allQuotes'])->name('quotes.index');
     Route::get('/all-contact-form', [DashboardController::class, 'allContactFormData'])->name('contact-form.index');
+
+    //seo manager
+    Route::get('/seo', [SeoController::class, 'index'])->name('seo.index');
+    Route::get('/add-seo', [SeoController::class, 'create'])->name('seo.create');
 });

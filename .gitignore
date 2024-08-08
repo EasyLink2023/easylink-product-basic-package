@@ -19,3 +19,5 @@ yarn-error.log
 /.vscode
 /resources/views/frontend/pages/
 /public/asset/
+
+/public/sitemap.xml

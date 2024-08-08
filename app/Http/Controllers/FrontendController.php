@@ -9,6 +9,8 @@ use App\Models\Menu;
 use App\Models\Pages;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 class FrontendController extends Controller
 {
@@ -22,6 +24,35 @@ class FrontendController extends Controller
             return view('frontend.contact-us');
         } else if ($page == 'login') {
             return view('auth.login');
+        } else if ($page == 'sitemap') {
+            $sitemap = Sitemap::create();
+            $posts = Blogs::all();
+            $menus = Menu::get();
+            $sitemap->add(Url::create('/')
+                ->setLastModificationDate(now())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(0.80));
+            $sitemap->add(Url::create('/blog')
+                ->setLastModificationDate(now())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(0.80));
+            $sitemap->add(Url::create('/contact-us')
+                ->setLastModificationDate(now())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(0.80));
+            foreach ($menus as $menu) {
+                $sitemap->add(Url::create("{$menu->url}")
+                    ->setLastModificationDate($menu->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.80));
+            }
+            foreach ($posts as $post) {
+                $sitemap->add(Url::create("/blog/{$post->slug}")
+                    ->setLastModificationDate($post->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.80));
+            }
+            return $sitemap->writeToFile(public_path('sitemap.xml'));
         } else if ($page == 'blog') {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->paginate(9);
             return view('frontend.blog', $data);
@@ -58,7 +89,7 @@ class FrontendController extends Controller
             'phone' => 'required|string|max:20',
             'message' => 'required|string|max:1000',
         ]);
-        
+
         try {
             $add = new GetQuote;
             $add->name = $request->name;
@@ -79,7 +110,7 @@ class FrontendController extends Controller
             'phone' => 'required|string|max:20',
             'message' => 'required|string|max:1000',
         ]);
-        
+
         try {
             $add = new ContactUsPageForm;
             $add->name = $request->name;
@@ -92,4 +123,16 @@ class FrontendController extends Controller
             return redirect()->back()->with(['error-contact' => $th->getMessage()]);
         }
     }
+
+    // public function generateSiteMap() {
+    //     $sitemap = Sitemap::create();
+    //     $posts = Blogs::all();
+    //     foreach ($posts as $post) {
+    //         $sitemap->add(Url::create("/blog/{$post->slug}")
+    //             ->setLastModificationDate($post->updated_at)
+    //             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+    //             ->setPriority(0.8));
+    //     }
+    //     return $sitemap->writeToFile(public_path('sitemap.xml'));
+    // }
 }
