@@ -4,6 +4,7 @@ use App\Models\ContactUsPage;
 use App\Models\GeneralSetting;
 use App\Models\IndexPage;
 use App\Models\Menu;
+use App\Models\pageSeoData;
 
 if(!function_exists('_get_setting_value')) {
     function _get_setting_value($key) {
@@ -29,6 +30,13 @@ if(!function_exists('_get_contact_us_page_data')) {
 if(!function_exists('_get_all_menu')) {
     function _get_all_menu() {
         $value = Menu::get();
+        return $value;
+    }
+}
+
+if(!function_exists('_get_page_seo_by_url')) {
+    function _get_page_seo_by_url($url) {
+        $value = pageSeoData::where('page_url', $url)->first();
         return $value;
     }
 }

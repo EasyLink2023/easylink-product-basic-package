@@ -22,6 +22,7 @@ class CreatePageForNewMenu
         $page_name = str_replace(' ', '_', $menu->menu_name);
         $viewPath = resource_path('views/frontend/pages/' . strtolower($page_name) . '.blade.php');
         $defaultContent = <<<HTML
+        @include('frontend.layouts.seo-tags')
         @extends('frontend.layouts.app')
             @section('content')
                 <div class="inner_banner">

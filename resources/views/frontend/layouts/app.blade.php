@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ _get_setting_value('SITE_NAME') }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="{{ _get_setting_value('SITE_NAME') }}">
+    <link rel="canonical" href="@yield('canonical', url(''), '')">
+    <title>@yield('title', _get_setting_value('SITE_NAME'), '')</title>
+    <meta name="description" content="@yield('description', _get_setting_value('SITE_NAME'), '')">
+    <meta name="keywords" content="@yield('keywords', _get_setting_value('SITE_NAME'), '')">
+    <link rel="shortcut icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}"
+        type="image/x-icon">
     <link rel="icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('FAVICON') }}" type="image/gif">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" />
 </head>
+
 <body>
     @include('frontend.layouts.header')
     @yield('content')
@@ -34,7 +42,7 @@
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            @if(Session::has('modal'))
+            @if (Session::has('modal'))
                 var myModal = new bootstrap.Modal(document.getElementById('getquote'), {
                     backdrop: 'static',
                     keyboard: false
@@ -44,4 +52,5 @@
         });
     </script>
 </body>
+
 </html>

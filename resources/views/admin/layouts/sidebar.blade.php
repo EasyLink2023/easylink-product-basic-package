@@ -22,7 +22,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.quotes.index') }}"
                         class="nav-link {{ $rt == 'admin.quotes.index' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p>
                             All Quotes Request
                         </p>
@@ -31,7 +31,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.contact-form.index') }}"
                         class="nav-link {{ $rt == 'admin.contact-form.index' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p>
                             All Contact Us Page Form
                         </p>
@@ -194,22 +194,22 @@
                     </ul>
                 </li>
                 <li
-                    class="nav-item {{ $rt == 'admin.seo.index' || $rt == 'admin.seo.create' ? 'menu-is-opening menu-open active' : '' }}">
+                    class="nav-item {{ $rt == 'admin.seo.index' || $rt == 'admin.seo.edit' ? 'menu-is-opening menu-open active' : '' }}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-comments"></i>
+                        <i class="nav-icon fa fa-globe"></i>
                         <p>
                             Seo
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.seo.create') }}"
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('admin.seo.edit') }}"
                                 class="nav-link {{ $rt == 'admin.seo.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Seo</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.seo.index') }}"
                                 class="nav-link {{ $rt == 'admin.seo.index' ? 'active' : '' }}">

@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\BlogController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\IndexPageController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContactUsPageController;
 use App\Http\Controllers\Admin\generalSettingController;
-use App\Http\Controllers\Admin\TestimonialController;
-use App\Models\Admin\SeoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,5 +102,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 
     //seo manager
     Route::get('/seo', [SeoController::class, 'index'])->name('seo.index');
-    Route::get('/add-seo', [SeoController::class, 'create'])->name('seo.create');
+    Route::get('/edit-seo/{url}', [SeoController::class, 'edit'])->name('seo.edit');
+    Route::post('/edit-seo', [SeoController::class, 'update'])->name('seo.update');
 });

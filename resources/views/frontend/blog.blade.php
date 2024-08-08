@@ -1,3 +1,4 @@
+@include('frontend.layouts.seo-tags')
 @extends('frontend.layouts.app')
 @section('content')
     <div class="inner_banner">

@@ -1,3 +1,4 @@
+@include('frontend.layouts.seo-tags')
 @extends('frontend.layouts.app')
 @section('content')
     @if (_get_index_page_value('SEC_1_VISIBLE') == '1')

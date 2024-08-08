@@ -1,3 +1,7 @@
+@section('title', $blog->meta_title ?? '')
+@section('description', $blog->meta_description ?? '')
+@section('keywords', $blog->meta_keyword ?? '')
+@section('canonical', route('blog.detail', $blog->slug))
 @extends('frontend.layouts.app')
 @section('content')
     <div class="inner_banner">
