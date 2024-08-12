@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Menu;
+use App\Models\IndexPage;
+use App\Models\pageSeoData;
 use App\Models\ContactUsPage;
 use App\Models\GeneralSetting;
-use App\Models\IndexPage;
-use App\Models\Menu;
-use App\Models\pageSeoData;
+use Illuminate\Support\Facades\DB;
 
 if(!function_exists('_get_setting_value')) {
     function _get_setting_value($key) {
@@ -37,6 +38,13 @@ if(!function_exists('_get_all_menu')) {
 if(!function_exists('_get_page_seo_by_url')) {
     function _get_page_seo_by_url($url) {
         $value = pageSeoData::where('page_url', $url)->first();
+        return $value;
+    }
+}
+
+if(!function_exists('_get_data_count_with_table_name')) {
+    function _get_data_count_with_table_name($table_name) {
+        $value = DB::table($table_name)->count();
         return $value;
     }
 }
