@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group">
                                         @if ($indexPage->value_type == '2')
-                                        <img src="{{ asset('asset/index-page').'/'.$indexPage->value }}" alt="{{ $indexPage->value }}" class="mb-5" style="width: 100px !important;">
+                                        <img src="{{ asset('asset/index-page').'/'.$indexPage->value }}" alt="{{ $indexPage->value }}" class="mb-5" style="width: 100px !important;" onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'">
                                             <label for="value" class="mt-3">Value</label>
                                             <input type="file" name="value" class="form-control" id="value"
                                                 placeholder="Enter value Name">
