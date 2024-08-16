@@ -46,10 +46,15 @@
                                     </div>
                                     <div class="form-group">
                                         @if ($setting->value_type == '2')
-                                        <img src="{{ asset('asset/setting').'/'.$setting->value }}" alt="{{ $setting->value }}" class="mb-5" style="width: 100px !important;">
+                                            <img src="{{ asset('asset/setting') . '/' . $setting->value }}"
+                                                alt="{{ $setting->value }}" class="mb-5" style="width: 100px !important;">
                                             <label for="value" class="mt-3">Value</label>
                                             <input type="file" name="value" class="form-control" id="value"
                                                 placeholder="Enter value Name">
+                                        @elseif($setting->value_type == '3')
+                                            <input type="color" name="value" class="form-control" id="value"
+                                                placeholder="Enter value Name"
+                                                value="{{ isset($setting) ? $setting->value : '' }}">
                                         @else
                                             <label for="value">Value</label>
                                             <input type="text" name="value" class="form-control" id="value"
@@ -64,7 +69,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                         </form>
-                    </div>
+                    </div> 
                 </div>
             </div>
     </div>
@@ -79,6 +84,8 @@
             var value = $(this).val();
             if (value == 1) {
                 $('#value').attr('type', 'text');
+            } else if (value == 2) {
+                $('#value').attr('type', 'color');
             } else {
                 $('#value').attr('type', 'file');
             }

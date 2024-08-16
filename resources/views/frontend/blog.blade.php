@@ -47,9 +47,11 @@
                                                     class="img-fluid" alt="{{ $item->cover_image }}"
                                                     onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                                             </div>
-                                            <div class="news_item_content">
-                                                <span>{{ $item->created_at }}</span>
-                                                <h4>
+                                            <div class="news_item_content"
+                                                style="background:{{ $background_color }} !important;">
+                                                <span
+                                                    style="color:{{ $font_color }} !important">{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</span>
+                                                <h4 style="color:{{ $font_color }} !important">
                                                     {{ Str::limit($item->title, 10, '...') }}
                                                 </h4>
                                             </div>

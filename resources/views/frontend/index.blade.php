@@ -7,29 +7,30 @@
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="banner_content">
-                            <h1 style="color:red !important;">{{ _get_index_page_value('SEC_1_TEXT') }}</h1>
+                            <h1 style="color:{{ $background_color }} !important;">{{ _get_index_page_value('SEC_1_TEXT') }}
+                            </h1>
                             <p class="translate">
                                 {{ _get_index_page_value('SEC_1_DESCRIPTION') }}
                             </p>
-                            <a
-                                href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}" style="color:red; background-color:#fec23e;" onmouseover="this.style.color='white'; this.style.backgroundColor='red';" onmouseout="this.style.color='red'; this.style.backgroundColor='#fec23e';">{{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}</a>
+                            <a href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}"
+                                style="color:{{ $font_color }} !important;  background-color:{{ $background_color }}; !important">{{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}</a>
                         </div>
                     </div>
                     <div class="col-md-4 offset-md-1">
                         <div class="banner_slider">
-                            <div class="slider_item" style="background:red !important;" >
+                            <div class="slider_item" style="background:{{ $background_color }} !important;">
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_1') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_1') }}"
                                     class="img-fluid"
                                     onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                             </div>
-                            <div class="slider_item" style="background:red !important;" >
+                            <div class="slider_item" style="background:{{ $background_color }} !important;">
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_2') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_2') }}"
                                     class="img-fluid"
                                     onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                             </div>
-                            <div class="slider_item" style="background:red !important;" >
+                            <div class="slider_item" style="background:{{ $background_color }} !important;">
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_3') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_3') }}"
                                     class="img-fluid"
@@ -48,7 +49,7 @@
                     <div class="col-md-12">
                         <div class="banner_bottom_content_box">
                             <input type="hidden" value="{{ _get_index_page_value('SEC_2_TEXT') }}" id="sec_two_text">
-                            <h2 class="texttyp" style="color:red !important;" ></h2>
+                            <h2 class="texttyp" style="color:{{ $background_color }} !important;"></h2>
                             <p>
                                 {{ _get_index_page_value('SEC_2_DESCRIPTION') }}
                             </p>
@@ -59,30 +60,34 @@
         </div>
     @endif
     @if (_get_index_page_value('SEC_3_VISIBLE') == '1')
-        <div class="key_point" style="background:red !important;" >
+        <div class="key_point" style="background:{{ $background_color }} !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_1') }}" style="color:red !important;" ></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_1') }}"
+                                style="color:{{ $background_color }} !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_1') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_2') }}" style="color:red !important;"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_2') }}"
+                                style="color:{{ $background_color }} !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_2') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_3') }}" style="color:red !important;"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_3') }}"
+                                style="color:{{ $background_color }} !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_3') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_4') }}" style="color:red !important;"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_4') }}"
+                                style="color:{{ $background_color }} !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_4') }}</p>
                         </div>
                     </div>
@@ -96,7 +101,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="news_title">
-                            <h5 style="color:red !important;">Blogs</h5>
+                            <h5 style="color:{{ $background_color }} !important;">Blogs</h5>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -111,9 +116,11 @@
                                                         class="img-fluid" alt="{{ $item->cover_image }}"
                                                         onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                                                 </div>
-                                                <div class="news_item_content" style="background:red !important;">
-                                                    <span>{{ $item->created_at }}</span>
-                                                    <h4>
+                                                <div class="news_item_content"
+                                                    style="background:{{ $background_color }} !important;">
+                                                    <span
+                                                        style="color:{{ $font_color }} !important">{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</span>
+                                                    <h4 style="color:{{ $font_color }} !important">
                                                         {{ Str::limit($item->title, 10, '...') }}
                                                     </h4>
                                                 </div>
@@ -129,13 +136,14 @@
         </div>
     @endif
     @if (_get_index_page_value('SERVICE_VISIBLE') == '1')
-        <div class="solutions" style="background:red !important;">
+        <div class="solutions" style="background:{{ $background_color }} !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="solutions_title">
-                            <h4>{{ _get_index_page_value('SERVICE_TEXT') }}</h4>
-                            <p>
+                            <h4 style="color:{{ $font_color }} !important">{{ _get_index_page_value('SERVICE_TEXT') }}
+                            </h4>
+                            <p style="color:{{ $font_color }} !important">
                                 {{ _get_index_page_value('SERVICE_DESCRIPTION') }}
                             </p>
                         </div>
@@ -199,7 +207,7 @@
         </div>
     @endif
     @if (_get_index_page_value('TESTIMONIAL_VISIBLE') == '1')
-        <div class="testimonial" style="background:red !important;">
+        <div class="testimonial" style="background:{{ $background_color }} !important;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -225,13 +233,14 @@
                                             </button> --}}
                                         </div>
                                         <div class="testimonial_slider_item_content">
-                                            <span>{{ $item->name }}, {{ $item->designation }}</span>
-                                            <ul class="stars" style="color:red !important;">
+                                            <span style="color:{{ $font_color }} !important">{{ $item->name }},
+                                                {{ $item->designation }}</span>
+                                            <ul class="stars" style="color:{{ $background_color }} !important;">
                                                 @for ($i = 0; $i < $item->rating; $i++)
                                                     <li><i class="fi fi-sr-star"></i></li>
                                                 @endfor
                                             </ul>
-                                            <p>
+                                            <p style="color:{{ $font_color }} !important;">
                                                 {{ $item->feedback }}
                                             </p>
                                         </div>

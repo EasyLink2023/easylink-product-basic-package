@@ -48,6 +48,7 @@
                                         <select name="value_type" id="value_type" class="form-select form-control">
                                             <option value="1" selected>Text</option>
                                             <option value="2">Image</option>
+                                            <option value="3">Color</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -76,7 +77,11 @@
             var value = $(this).val();
             if (value == 1) {
                 $('#value').attr('type', 'text');
-            } else {
+            } 
+            else if(value == 3) {
+                $('#value').attr('type', 'color');
+            }
+            else {
                 $('#value').attr('type', 'file');
             }
         });

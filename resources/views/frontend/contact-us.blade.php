@@ -56,7 +56,7 @@
                         </div>
                     @endif
                     <div class="order_online_title">
-                        <h2>{{ _get_contact_us_page_data('SEC_2_FORM_TEXT') }}</h2>
+                        <h2 style="color:{{ $background_color }} !important;">{{ _get_contact_us_page_data('SEC_2_FORM_TEXT') }}</h2>
                     </div>
                     <div class="order_online_form">
                         <div class="getquote_form_box">
@@ -93,7 +93,7 @@
                                     <label for="Message" class="form-label">Message</label>
                                     <textarea class="form-control" name="message" id="Message" rows="2" placeholder="Your Message"></textarea>
                                 </div>
-                                <button id="fromSubmit" type="submit">Submit</button>
+                                <button id="fromSubmit" type="submit" style="background:{{ $background_color }} !important;color:{{ $font_color }}">Submit</button>
                             </form>
                         </div>
                     </div>

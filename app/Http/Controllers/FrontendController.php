@@ -18,6 +18,8 @@ class FrontendController extends Controller
 {
     public function homePage($page = null)
     {
+        $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
+        $data['font_color'] = _get_setting_value('FONT_COLOR');
         if (!$page) {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->get()->take(3);
             $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
@@ -25,9 +27,9 @@ class FrontendController extends Controller
             $data['galleries'] = Gallery::orderBy('id', 'desc')->get()->take(12);
             return view('frontend.index', $data);
         } else if ($page == 'contact-us') {
-            return view('frontend.contact-us');
+            return view('frontend.contact-us', $data);
         } else if ($page == 'login') {
-            return view('auth.login');
+            return view('auth.login', $data);
         } else if ($page == 'sitemap') {
             $sitemap = Sitemap::create();
             $posts = Blogs::all();
