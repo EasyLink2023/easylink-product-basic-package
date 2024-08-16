@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2024 at 05:18 PM
+-- Generation Time: Aug 16, 2024 at 07:03 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -103,6 +103,31 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint UNSIGNED NOT NULL,
+  `question` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `answer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `answer`, `created_at`, `updated_at`) VALUES
+(1, 'Hello how are you ?', 'I am good', '2024-08-16 13:06:59', '2024-08-16 13:06:59'),
+(3, 'Cumque tempore ipsu', 'Aut tempore odio un', '2024-08-16 13:07:14', '2024-08-16 13:07:14'),
+(4, 'Explicabo Elit nes', 'Enim pariatur Quia', '2024-08-16 13:07:17', '2024-08-16 13:07:17'),
+(5, 'Magnam tempora venia', 'In sequi nostrud ear', '2024-08-16 13:07:21', '2024-08-16 13:07:21'),
+(6, 'Elit saepe autem et', 'Modi atque ut molest', '2024-08-16 13:07:24', '2024-08-16 13:07:24');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `galleries`
 --
 
@@ -151,8 +176,8 @@ INSERT INTO `general_settings` (`id`, `key_name`, `value`, `value_type`, `is_act
 (2, 'SITE_LOGO', '1720860986.png', '2', '1', '2024-07-13 03:26:26', '2024-07-13 03:26:26'),
 (3, 'FAVICON', '1721051688.ico', '2', '1', '2024-07-13 03:27:28', '2024-07-15 08:24:48'),
 (4, 'LOADER_ICON', '1721051704.png', '2', '1', '2024-07-15 08:25:04', '2024-07-15 08:25:04'),
-(18, 'BLOG_PAGE_SECTION_1_BACKGROUND_IMAGE', '1722351846.png', '2', '1', '2024-07-30 09:34:06', '2024-07-30 09:34:06'),
-(19, 'BLOG_SEC_1_TEXT', 'Lorem Ipsum', '1', '1', '2024-07-30 09:35:34', '2024-07-30 09:35:34'),
+(5, 'BLOG_PAGE_SECTION_1_BACKGROUND_IMAGE', '1722351846.png', '2', '1', '2024-07-30 09:34:06', '2024-07-30 09:34:06'),
+(6, 'BLOG_SEC_1_TEXT', 'Lorem Ipsum', '1', '1', '2024-07-30 09:35:34', '2024-07-30 09:35:34'),
 (7, 'BLOG_SEC_1_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum', '1', '1', '2024-07-30 09:35:48', '2024-07-30 09:35:48'),
 (8, 'ADDRESS', 'Lorem ipsum dolor sit amet consectetur adipisicing eli', '1', '1', '2024-07-31 03:21:19', '2024-07-31 03:21:19'),
 (9, 'PHONE_NUMBER', '+01 1236547890', '1', '1', '2024-07-31 03:24:42', '2024-07-31 03:24:42'),
@@ -164,8 +189,8 @@ INSERT INTO `general_settings` (`id`, `key_name`, `value`, `value_type`, `is_act
 (15, 'YOUTUBE_LINK', 'https://youtube.com/example', '1', '1', '2024-07-31 03:30:06', '2024-07-31 03:30:06'),
 (16, 'FOOTER_TEXT', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-07-31 06:51:15', '2024-07-31 06:51:15'),
 (17, 'DOMAIN', 'www.easylinkindia.com', '1', '1', '2024-08-08 02:13:53', '2024-08-08 02:13:53'),
-(5, 'BACKGROUND_COLOR', '#007bff', '3', '1', '2024-08-16 07:59:36', '2024-08-16 10:41:48'),
-(6, 'FONT_COLOR', '#ffffff', '3', '1', '2024-08-16 08:48:04', '2024-08-16 10:46:29');
+(18, 'BACKGROUND_COLOR', '#007bff', '3', '1', '2024-08-16 07:59:36', '2024-08-16 10:41:48'),
+(19, 'FONT_COLOR', '#ffffff', '3', '1', '2024-08-16 08:48:04', '2024-08-16 10:46:29');
 
 -- --------------------------------------------------------
 
@@ -231,7 +256,10 @@ INSERT INTO `index_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `cre
 (25, 'SERVICE_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum', '1', '1', '2024-08-16 01:56:36', '2024-08-16 01:56:36'),
 (26, 'GALLERY_VISIBLE', '1', '3', '1', '2024-08-16 04:23:31', '2024-08-16 04:23:31'),
 (27, 'GALLERY_TEXT', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 04:24:00', '2024-08-16 04:24:00'),
-(28, 'GALLERY_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 04:24:15', '2024-08-16 04:24:15');
+(28, 'GALLERY_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 04:24:15', '2024-08-16 04:24:15'),
+(29, 'FAQ_VISIBLE', '1', '3', '1', '2024-08-16 13:09:38', '2024-08-16 13:09:38'),
+(30, 'FAQ_TEXT', 'Faqs', '1', '1', '2024-08-16 13:10:54', '2024-08-16 13:10:54'),
+(31, 'FAQ_DESCRIPTION', 'Faqs DESCRIPTION', '1', '1', '2024-08-16 13:11:37', '2024-08-16 13:11:37');
 
 -- --------------------------------------------------------
 
@@ -289,7 +317,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2024_07_31_183234_create_contact_us_page_forms_table', 10),
 (25, '2024_08_08_130732_create_page_seo_data_table', 11),
 (26, '2024_08_16_073055_create_services_table', 12),
-(27, '2024_08_16_082706_create_galleries_table', 13);
+(27, '2024_08_16_082706_create_galleries_table', 13),
+(28, '2024_08_16_173742_create_faqs_table', 14);
 
 -- --------------------------------------------------------
 
@@ -499,6 +528,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `galleries`
 --
 ALTER TABLE `galleries`
@@ -621,6 +656,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
@@ -642,7 +683,7 @@ ALTER TABLE `get_quotes`
 -- AUTO_INCREMENT for table `index_pages`
 --
 ALTER TABLE `index_pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -654,7 +695,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `pages`
