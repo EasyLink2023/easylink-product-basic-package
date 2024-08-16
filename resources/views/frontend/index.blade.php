@@ -253,4 +253,50 @@
             </div>
         </div>
     @endif
+    @if (_get_index_page_value('FAQ_VISIBLE') == '1')
+        <div class="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="news_title">
+                            <h6 style="color:{{ $background_color }} !important;">{{ _get_index_page_value('FAQ_TEXT') }}
+                            </h6>
+                            <P>{{ _get_index_page_value('FAQ_DESCRIPTION') }}</P>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            @if (isset($faqs) && count($faqs) > 0)
+                                <div class="col-md-8 mx-auto mb-4">
+                                    @foreach ($faqs as $key => $item)
+                                        <div class="accordion mb-2" id="accordion{{ $key }}">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading{{ $key }}">
+                                                    <button class="accordion-button" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne{{ $key }}"
+                                                        aria-expanded="true"
+                                                        aria-controls="collapseOne{{ $key }}">
+                                                        {{ $item->question }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne{{ $key }}"
+                                                    class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}"
+                                                    aria-labelledby="heading{{ $key }}"
+                                                    data-bs-parent="#accordion{{ $key }}}">
+                                                    <div class="accordion-body">
+                                                        {{ $item->answer }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection

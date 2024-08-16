@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blogs;
 use App\Models\ContactUsPageForm;
+use App\Models\Faqs;
 use App\Models\Gallery;
 use App\Models\GetQuote;
 use App\Models\Menu;
@@ -25,6 +26,7 @@ class FrontendController extends Controller
             $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
             $data['services'] = Service::orderBy('id', 'desc')->get()->take(10);
             $data['galleries'] = Gallery::orderBy('id', 'desc')->get()->take(12);
+            $data['faqs'] = Faqs::orderBy('id', 'desc')->get();
             return view('frontend.index', $data);
         } else if ($page == 'contact-us') {
             return view('frontend.contact-us', $data);

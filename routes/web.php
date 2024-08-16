@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\IndexPageController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContactUsPageController;
+use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\generalSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -115,10 +116,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
       Route::post('/update-service', [ServiceController::class, 'update'])->name('service.update');
       Route::get('/delete-service/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
 
-      //
+      //gallery
       Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
       Route::get('/add-gallery', [GalleryController::class, 'create'])->name('gallery.create');
       Route::post('/save-gallery', [GalleryController::class, 'store'])->name('gallery.store');
       Route::get('/delete-gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+
+      //faqs
+      Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
+      Route::get('/add-faqs', [FaqsController::class, 'create'])->name('faqs.create');
+      Route::post('/save-faqs', [FaqsController::class, 'store'])->name('faqs.store');
+      Route::get('/delete-faqs/{id}', [FaqsController::class, 'destroy'])->name('faqs.destroy');
     
 });

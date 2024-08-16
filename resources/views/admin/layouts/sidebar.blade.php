@@ -271,6 +271,32 @@
                         </li>
                     </ul>
                 </li>
+                <li
+                    class="nav-item {{ $rt == 'admin.faqs.index' || $rt == 'admin.faqs.create' ? 'menu-is-opening menu-open active' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-question-circle"></i>
+                        <p>
+                            Faqs
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.faqs.create') }}"
+                                class="nav-link {{ $rt == 'admin.faqs.create' ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Faqs</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.faqs.index') }}"
+                                class="nav-link {{ $rt == 'admin.faqs.index' ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Faqs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

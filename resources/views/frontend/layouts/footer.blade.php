@@ -22,8 +22,8 @@
             </div>
         @endif
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="getquoteLabel">Get Quote</h5>
+            <div class="modal-header" style="background:{{ $background_color }} !important;color:{{ $font_color }}">
+                <h5 class="modal-title" id="getquoteLabel" style="color:{{ $font_color }}">Get Quote</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -59,7 +59,7 @@
                             <label for="Message" class="form-label">Message</label>
                             <textarea class="form-control" name="message" id="Message2" rows="2" placeholder="Your Message"></textarea>
                         </div>
-                        <button id="fromSubmit2" type="submit">Submit</button>
+                        <button id="fromSubmit2" type="submit" style="background:{{ $background_color }} !important;color:{{ $font_color }}">Submit</button>
                     </form>
                 </div>
             </div>
