@@ -7,29 +7,29 @@
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="banner_content">
-                            <h1>{{ _get_index_page_value('SEC_1_TEXT') }}</h1>
+                            <h1 style="color:red !important;">{{ _get_index_page_value('SEC_1_TEXT') }}</h1>
                             <p class="translate">
                                 {{ _get_index_page_value('SEC_1_DESCRIPTION') }}
                             </p>
                             <a
-                                href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}">{{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}</a>
+                                href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}" style="color:red; background-color:#fec23e;" onmouseover="this.style.color='white'; this.style.backgroundColor='red';" onmouseout="this.style.color='red'; this.style.backgroundColor='#fec23e';">{{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}</a>
                         </div>
                     </div>
                     <div class="col-md-4 offset-md-1">
                         <div class="banner_slider">
-                            <div class="slider_item">
+                            <div class="slider_item" style="background:red !important;" >
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_1') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_1') }}"
                                     class="img-fluid"
                                     onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                             </div>
-                            <div class="slider_item">
+                            <div class="slider_item" style="background:red !important;" >
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_2') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_2') }}"
                                     class="img-fluid"
                                     onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                             </div>
-                            <div class="slider_item">
+                            <div class="slider_item" style="background:red !important;" >
                                 <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_3') }}"
                                     alt="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_3') }}"
                                     class="img-fluid"
@@ -48,7 +48,7 @@
                     <div class="col-md-12">
                         <div class="banner_bottom_content_box">
                             <input type="hidden" value="{{ _get_index_page_value('SEC_2_TEXT') }}" id="sec_two_text">
-                            <h2 class="texttyp"></h2>
+                            <h2 class="texttyp" style="color:red !important;" ></h2>
                             <p>
                                 {{ _get_index_page_value('SEC_2_DESCRIPTION') }}
                             </p>
@@ -59,30 +59,30 @@
         </div>
     @endif
     @if (_get_index_page_value('SEC_3_VISIBLE') == '1')
-        <div class="key_point">
+        <div class="key_point" style="background:red !important;" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_1') }}"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_1') }}" style="color:red !important;" ></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_1') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_2') }}"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_2') }}" style="color:red !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_2') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_3') }}"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_3') }}" style="color:red !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_3') }}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="key_point_box">
-                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_4') }}"></span>
+                            <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_4') }}" style="color:red !important;"></span>
                             <p>{{ _get_index_page_value('SEC_3_TEXT_4') }}</p>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="news_title">
-                            <h5>Blogs</h5>
+                            <h5 style="color:red !important;">Blogs</h5>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -111,7 +111,7 @@
                                                         class="img-fluid" alt="{{ $item->cover_image }}"
                                                         onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                                                 </div>
-                                                <div class="news_item_content">
+                                                <div class="news_item_content" style="background:red !important;">
                                                     <span>{{ $item->created_at }}</span>
                                                     <h4>
                                                         {{ Str::limit($item->title, 10, '...') }}
@@ -129,7 +129,7 @@
         </div>
     @endif
     @if (_get_index_page_value('SERVICE_VISIBLE') == '1')
-        <div class="solutions">
+        <div class="solutions" style="background:red !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -199,7 +199,7 @@
         </div>
     @endif
     @if (_get_index_page_value('TESTIMONIAL_VISIBLE') == '1')
-        <div class="testimonial">
+        <div class="testimonial" style="background:red !important;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -226,7 +226,7 @@
                                         </div>
                                         <div class="testimonial_slider_item_content">
                                             <span>{{ $item->name }}, {{ $item->designation }}</span>
-                                            <ul class="stars">
+                                            <ul class="stars" style="color:red !important;">
                                                 @for ($i = 0; $i < $item->rating; $i++)
                                                     <li><i class="fi fi-sr-star"></i></li>
                                                 @endfor

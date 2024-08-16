@@ -156,7 +156,7 @@
             <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
                 <div class="footer_links">
                     <div class="footer_links_content">
-                        <span class="translate">Company</span>
+                        <span class="translate" style="color:red !important">Company</span>
                         <ul class="menu">
                             <li>
                                 <a href="{{ route('index', 'blog') }}">Blog</a>
@@ -171,7 +171,7 @@
             <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
                 <div class="footer_links">
                     <div class="footer_links_content">
-                        <span class="translate">Qucik Links</span>
+                        <span class="translate" style="color:red !important">Quick Links</span>
                         <ul class="menu">
                             @foreach (_get_all_menu() as $item)
                                 <li>

@@ -4,8 +4,8 @@
             <div class="loadbar"></div>
         </div>
     </div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
+    <div class="loader-section section-left" style="background:red !important"></div>
+    <div class="loader-section section-right" style="background:red !important"></div>
 </div>
 <div id="button"></div>
 <header class="navigation">
@@ -43,7 +43,7 @@
                     <button type="button"><i class="fi fi-rr-search"></i></button>
                 </div> --}}
                 <div class="get_quote">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#getquote">Get
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#getquote" style="background:red !important;">Get
                         Quote</button>
                 </div>
             </div>
