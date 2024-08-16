@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">All Contact Us Page Form Data</h1>
+                        <h1 class="m-0">All Services</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">All Contact Us Page Form Data</li>
+                            <li class="breadcrumb-item active">All Services</li>
                         </ol>
                     </div>
                 </div>
@@ -37,23 +37,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">All Contact Us Page Form Data</h3>
-                                <form method="GET" action="{{ route('admin.contact-form.index') }}">
-                                    <div class="row">
-                                        <div class="col-5"></div>
-                                        <div class="col-3">
-                                            <label for="">Start Date</label>
-                                            <input type="date" name="start_date" required class="form-control" value="{{ app('request')->input('start_date') }}">
-                                        </div>
-                                        <div class="col-3">
-                                            <label for="">End Date</label>
-                                            <input type="date" name="end_date"  required class="form-control" value="{{ app('request')->input('end_date') }}">
-                                        </div>
-                                        <div class="col-1">
-                                            <input type="submit" value="Filter" class="btn btn-warning" style="margin-top: 32px;">
-                                        </div>
-                                    </div>
-                                </form>
+                                <h3 class="card-title">All Services</h3>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -61,22 +45,31 @@
                                         <tr>
                                             <th>#ID</th>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Message</th>
-                                            <th>Requested Date</th>
+                                            <th>Cover Image</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (!empty($contacts))
-                                            @foreach ($contacts as $item)
+                                        @if (!empty($services))
+                                            @foreach ($services as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->phone }}</td>
-                                                    <td>{{ $item->message }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</td>
+                                                    <td>
+                                                        <img src="{{ asset('asset/service') . '/' . $item->cover_image }}"
+                                                            alt="{{ $item->cover_image }}" class="img-fluid" style="width:100px"
+                                                            onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->description }}
+                                                    </td>
+                                                    <td>
+                                                        {{-- <a href="{{ route('admin.service.edit', $item->id) }}"
+                                                            class="btn btn-warning mb-2">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a> --}}
+                                                        <a href="{{ route('admin.service.destroy', $item->id) }}"
+                                                            class="btn btn-danger">Delete</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -106,8 +99,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "order": [[0, 'desc']]
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>

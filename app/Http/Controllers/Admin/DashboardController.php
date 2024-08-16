@@ -19,15 +19,27 @@ class DashboardController extends Controller
         return view('admin.dashboard', $data);
     }
 
-    public function allQuotes()
+    public function allQuotes(Request $request)
     {
-        $data['quotes'] = GetQuote::all();
+        if ($request->has('start_date') && $request->has('end_date')) {
+            $start_date = Carbon::parse($request->input('start_date'));
+            $end_date = Carbon::parse($request->input('end_date'));
+            $data['quotes'] = GetQuote::whereBetween('created_at', [$start_date, $end_date])->get();
+        } else {
+            $data['quotes'] = GetQuote::all();
+        }
         return view('admin.all-quotes', $data);
     }
 
-    public function allContactFormData()
+    public function allContactFormData(Request $request)
     {
-        $data['contacts'] = ContactUsPageForm::all();
+        if ($request->has('start_date') && $request->has('end_date')) {
+            $start_date = Carbon::parse($request->input('start_date'));
+            $end_date = Carbon::parse($request->input('end_date'));
+            $data['contacts'] = ContactUsPageForm::whereBetween('created_at', [$start_date, $end_date])->get();
+        } else {
+            $data['contacts'] = ContactUsPageForm::all();
+        }
         return view('admin.contact-us-form', $data);
     }
 }

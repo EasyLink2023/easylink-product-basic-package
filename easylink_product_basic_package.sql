@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2024 at 05:25 PM
+-- Generation Time: Aug 16, 2024 at 10:43 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -43,15 +43,6 @@ CREATE TABLE `blogs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `blogs`
---
-
-INSERT INTO `blogs` (`id`, `meta_title`, `meta_description`, `meta_keyword`, `cover_image`, `tags`, `title`, `slug`, `content`, `created_by`, `is_active`, `created_at`, `updated_at`) VALUES
-(3, 'test title', 'test dscription', 'Placeat labore sit', '1722349295.png', 'Eos error exercitat', 'Consequuntur fugit', 'consequuntur-fugit', '<b>Nam ratione debitis .</b>', 'Sint est sit dignis', '1', '2024-07-30 08:50:38', '2024-07-30 08:51:35'),
-(4, 'Enim sint assumenda', 'Itaque in est commod', 'Eius et fugiat odit', '1722352407.png', 'Dolore explicabo Re', 'Vel molestiae evenie', 'vel-molestiae-evenie', NULL, 'Accusantium reiciend', '1', '2024-07-30 09:43:27', '2024-07-30 09:43:27'),
-(5, 'Quasi commodi perfer', 'Dolore adipisicing m', 'Qui eos ipsa dolor', '1722352419.jpg', 'Sit pariatur Recusa', 'Incididunt tenetur u', 'incididunt-tenetur-u', NULL, 'Architecto Nam sapie', '1', '2024-07-30 09:43:39', '2024-07-30 09:43:39');
-
 -- --------------------------------------------------------
 
 --
@@ -67,16 +58,6 @@ CREATE TABLE `contact_us_pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `contact_us_pages`
---
-
-INSERT INTO `contact_us_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'BANNER_IMAGE', '1723483402.jpg', '2', '1', '2024-07-23 09:42:17', '2024-08-12 11:53:22'),
-(2, 'SEC_1_TEXT', 'Lorem Ipsum', '1', '1', '2024-07-23 09:52:45', '2024-07-23 09:52:45'),
-(3, 'SEC_1_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum', '1', '1', '2024-07-23 09:53:15', '2024-07-23 09:55:30'),
-(4, 'SEC_2_FORM_TEXT', 'Lorem ipsum', '1', '1', '2024-07-23 09:54:55', '2024-07-23 09:54:55');
 
 -- --------------------------------------------------------
 
@@ -113,6 +94,19 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` bigint UNSIGNED NOT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `general_settings`
 --
 
@@ -142,7 +136,7 @@ INSERT INTO `general_settings` (`id`, `key_name`, `value`, `value_type`, `is_act
 (9, 'PHONE_NUMBER', '+01 1236547890', '1', '1', '2024-07-31 03:24:42', '2024-07-31 03:24:42'),
 (10, 'EMAIL_ADDRESS', 'test@example.com', '1', '1', '2024-07-31 03:26:31', '2024-07-31 03:26:31'),
 (11, 'X_LINK', 'https://x.com/emaple-site', '1', '1', '2024-07-31 03:27:12', '2024-07-31 03:27:12'),
-(12, 'FACEBOOK_LINK', 'https://www.facebook.com/example', '1', '1', '2024-07-31 03:28:52', '2024-07-31 03:28:52'),
+(12, 'FACEBOOK_LINK', 'https://www.facebook.com/easylinkchn', '1', '1', '2024-07-31 03:28:52', '2024-08-14 00:36:14'),
 (13, 'INSTAGRAM_LINK', 'https://instagram/example', '1', '1', '2024-07-31 03:29:20', '2024-07-31 03:29:20'),
 (14, 'LINKEDIN_LINK', 'https://linkedin.com/example.com', '1', '1', '2024-07-31 03:29:47', '2024-07-31 03:29:47'),
 (15, 'YOUTUBE_LINK', 'https://youtube.com/example', '1', '1', '2024-07-31 03:30:06', '2024-07-31 03:30:06'),
@@ -186,7 +180,7 @@ CREATE TABLE `index_pages` (
 --
 
 INSERT INTO `index_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'SEC_1_VISIBLE', '1', '3', '1', '2024-07-22 09:14:40', '2024-07-22 09:14:49'),
+(1, 'SEC_1_VISIBLE', '1', '3', '1', '2024-07-22 09:14:40', '2024-08-14 00:12:06'),
 (2, 'SEC_1_TEXT', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-07-22 09:18:45', '2024-07-22 09:23:29'),
 (3, 'SEC_1_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.', '1', '1', '2024-07-22 09:23:17', '2024-07-22 09:23:17'),
 (4, 'SEC_1_BUTTON_TEXT', 'Lorem ipsum', '1', '1', '2024-07-22 09:24:10', '2024-07-22 09:24:33'),
@@ -206,8 +200,14 @@ INSERT INTO `index_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `cre
 (18, 'SEC_3_TEXT_3', 'Lorem ipsum dolor si', '1', '1', '2024-07-23 07:26:38', '2024-07-23 07:26:38'),
 (19, 'SEC_3_NUMBER_4', '93', '1', '1', '2024-07-23 07:26:58', '2024-07-23 07:26:58'),
 (20, 'SEC_3_TEXT_4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel', '1', '1', '2024-07-23 07:27:23', '2024-07-23 07:27:23'),
-(21, 'SEC_4_VISIBLE', '1', '3', '1', '2024-07-30 10:06:59', '2024-07-30 10:06:59'),
-(22, 'TESTIMONIAL_VISIBLE', '1', '3', '1', '2024-07-31 02:53:14', '2024-08-11 23:49:37');
+(21, 'SEC_4_VISIBLE', '1', '3', '1', '2024-07-30 10:06:59', '2024-08-16 01:41:18'),
+(22, 'TESTIMONIAL_VISIBLE', '1', '3', '1', '2024-07-31 02:53:14', '2024-08-16 01:41:29'),
+(23, 'SERVICE_VISIBLE', '1', '3', '1', '2024-08-16 01:41:06', '2024-08-16 01:41:06'),
+(24, 'SERVICE_TEXT', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 01:56:19', '2024-08-16 01:56:19'),
+(25, 'SERVICE_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum', '1', '1', '2024-08-16 01:56:36', '2024-08-16 01:56:36'),
+(26, 'GALLERY_VISIBLE', '1', '3', '1', '2024-08-16 04:23:31', '2024-08-16 04:23:31'),
+(27, 'GALLERY_TEXT', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 04:24:00', '2024-08-16 04:24:00'),
+(28, 'GALLERY_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit', '1', '1', '2024-08-16 04:24:15', '2024-08-16 04:24:15');
 
 -- --------------------------------------------------------
 
@@ -223,6 +223,13 @@ CREATE TABLE `menus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `menu_name`, `url`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'About Us', 'about-us', '1', '2024-08-14 00:09:42', '2024-08-14 00:09:42');
 
 -- --------------------------------------------------------
 
@@ -256,7 +263,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2024_07_31_070520_create_testimonials_table', 8),
 (22, '2024_07_31_172828_create_get_quotes_table', 9),
 (23, '2024_07_31_183234_create_contact_us_page_forms_table', 10),
-(25, '2024_08_08_130732_create_page_seo_data_table', 11);
+(25, '2024_08_08_130732_create_page_seo_data_table', 11),
+(26, '2024_08_16_073055_create_services_table', 12),
+(27, '2024_08_16_082706_create_galleries_table', 13);
 
 -- --------------------------------------------------------
 
@@ -291,16 +300,6 @@ CREATE TABLE `page_seo_data` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `page_seo_data`
---
-
-INSERT INTO `page_seo_data` (`id`, `page_url`, `title`, `description`, `keyword`, `created_at`, `updated_at`) VALUES
-(1, 'http://127.0.0.1:8000', 'Test Heading', 'This is home page description This is home page description This is home page description This is home page description This is home page description This is home page description This is home page description This is home page description', 'test. heading, landing page', '2024-08-08 09:17:39', '2024-08-11 23:53:52'),
-(2, 'http://127.0.0.1:8000/about-us', 'About Us', 'About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us', 'About Us , About Us , About Us , About Us', '2024-08-08 10:25:08', '2024-08-08 10:25:08'),
-(3, 'http://127.0.0.1:8000/contact-us', 'Contact Us Page', 'Contact Us Page Contact Us Page Contact Us Page Contact Us Page Contact Us Page', 'Contact Us Page , Contact Us Page , Contact Us Page', '2024-08-08 10:27:21', '2024-08-08 10:27:21'),
-(4, 'http://127.0.0.1:8000/blog', 'Aperiam facilis temp', 'Animi animi eum ex', 'Excepturi placeat p', '2024-08-08 13:58:06', '2024-08-08 13:58:06');
 
 -- --------------------------------------------------------
 
@@ -369,6 +368,21 @@ INSERT INTO `roles` (`id`, `role_name`, `is_active`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `testimonials`
 --
 
@@ -382,14 +396,6 @@ CREATE TABLE `testimonials` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `testimonials`
---
-
-INSERT INTO `testimonials` (`id`, `name`, `designation`, `rating`, `profile_image`, `feedback`, `created_at`, `updated_at`) VALUES
-(1, 'Cassandra Watson', 'Voluptas voluptatem', '5', '1722413978.png', 'Velit alias velit l ehj nkjfndjafo njdfnoij fjndm fjdsfids nfmsdf sif nsdnf uf sndfm dfjs dfndf sdf dnsn djfniod fiod fkosdjf iod jsf', '2024-07-31 02:49:38', '2024-07-31 02:49:38'),
-(3, 'Marny Glover', 'Quia id rerum veniam', '3', '1722414870.png', 'Suscipit consequatur', '2024-07-31 03:04:30', '2024-07-31 03:04:30');
 
 -- --------------------------------------------------------
 
@@ -444,6 +450,12 @@ ALTER TABLE `contact_us_page_forms`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `general_settings`
@@ -515,6 +527,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `testimonials`
 --
 ALTER TABLE `testimonials`
@@ -535,13 +553,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contact_us_pages`
 --
 ALTER TABLE `contact_us_pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contact_us_page_forms`
@@ -553,6 +571,12 @@ ALTER TABLE `contact_us_page_forms`
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -571,19 +595,19 @@ ALTER TABLE `get_quotes`
 -- AUTO_INCREMENT for table `index_pages`
 --
 ALTER TABLE `index_pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -595,7 +619,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `page_seo_data`
 --
 ALTER TABLE `page_seo_data`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -610,10 +634,16 @@ ALTER TABLE `roles`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

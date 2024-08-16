@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Edit Page Seo Data</h1>
+                        <h1 class="m-0">Add Service</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Edit Page Seo Data</li>
+                            <li class="breadcrumb-item active">Add Service</li>
                         </ol>
                     </div>
                 </div>
@@ -32,38 +32,31 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Edit Page Seo Data</h3>
+                                <h3 class="card-title">Add Service</h3>
                             </div>
-                            <form id="menuForm" method="POST" action="{{ route('admin.seo.update') }}"
+                            <form id="indexPageForm" method="POST" action="{{ route('admin.service.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="page_url">Page Url</label>
-                                        <input type="text" name="page_url" class="form-control" id="page_url"
-                                            placeholder="Enter Page Url" value="{{ $pageData->page_url ?? $url }}" readonly>
+                                        <label for="name">Servicec Name</label>
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            placeholder="Enter key Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title"
-                                            placeholder="Enter title" value="{{ $pageData->title ?? '' }}">
+                                        <label for="valucover_imagee">Value</label>
+                                        <input type="file" name="cover_image" class="form-control" id="cover_image"
+                                            placeholder="Enter value Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Description</label>
+                                        <label for="description">Servicec Name</label>
                                         <input type="text" name="description" class="form-control" id="description"
-                                            placeholder="Enter description" value="{{ $pageData->description ?? '' }}">
+                                            placeholder="Enter service description">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="keyword">Keyword</label>
-                                        <input type="text" name="keyword" class="form-control" id="keyword"
-                                            placeholder="Enter Keyword" value="{{ $pageData->keyword ?? '' }}">
-                                    </div>
-
                                 </div>
                         </div>
                         <div class="card-footer">
-                            <input type="hidden" value="{{ $pageData->id ?? '' }}" name="id">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                         </form>
                     </div>
@@ -83,39 +76,27 @@
                     form.submit();
                 }
             });
-            $('#menuForm').validate({
+            $('#indexPageForm').validate({
                 rules: {
-                    page_url: {
+                    name: {
                         required: true,
                     },
-                    title: {
+                    cover_image: {
                         required: true,
-                        maxlength: 160
                     },
                     description: {
                         required: true,
-                        maxlength: 255
-                    },
-                    keyword: {
-                        required: true,
-                        maxlength: 50
                     },
                 },
                 messages: {
-                    page_url: {
-                        required: "Please enter page url",
+                    name: {
+                        required: "Please enter service name",
                     },
-                    title: {
-                        required: "Please enter title",
-                         maxlength: "Max character limit is 160"
+                    cover_image: {
+                        required: "Please select cover image",
                     },
                     description: {
-                        required: "Please enter description",
-                        maxlength: "Max character limit is 255"
-                    },
-                    keyword: {
-                        required: "Please enter Keyword",
-                        maxlength: "Max character limit is 50"
+                        required: "Please enter service description",
                     },
                 },
                 errorElement: 'span',

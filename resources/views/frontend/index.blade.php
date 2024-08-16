@@ -128,6 +128,76 @@
             </div>
         </div>
     @endif
+    @if (_get_index_page_value('SERVICE_VISIBLE') == '1')
+        <div class="solutions">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="solutions_title">
+                            <h4>{{ _get_index_page_value('SERVICE_TEXT') }}</h4>
+                            <p>
+                                {{ _get_index_page_value('SERVICE_DESCRIPTION') }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="solutions_items">
+                            @if (isset($services) && count($services) > 0)
+                                @foreach ($services as $item)
+                                    <div class="solutions_item">
+                                        <a href="javascript:void(0)">
+                                            <div class="solutions_item_box">
+                                                <div class="solutions_item_image">
+                                                    <img src="{{ asset('asset/service') . '/' . $item->cover_image }}"
+                                                        alt="{{ $item->cover_image }}" class="img-fluid"
+                                                        onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
+                                                </div>
+                                                <div class="solutions_item_content">
+                                                    <span><strong>{{ $item->name }}</strong></span>
+                                                    <span>{{ $item->description }}</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (_get_index_page_value('GALLERY_VISIBLE') == '1')
+        <div class="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="news_title">
+                            <h4>{{ _get_index_page_value('SERVICE_TEXT') }}</h4>
+                            <P>{{ _get_index_page_value('GALLERY_DESCRIPTION') }}</P>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            @if (isset($galleries) && count($galleries) > 0)
+                                @foreach ($galleries as $item)
+                                    <div class="col-md-4 mb-4">
+                                        <div class="news_items">
+                                            <div class="news_item_image">
+                                                <img src="{{ asset('asset/gallery') . '/' . $item->image_url }}"
+                                                    alt="{{ $item->image_url }}" class="img-fluid"
+                                                    onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     @if (_get_index_page_value('TESTIMONIAL_VISIBLE') == '1')
         <div class="testimonial">
             <div class="container">

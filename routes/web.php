@@ -12,7 +12,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\IndexPageController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContactUsPageController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\generalSettingController;
+use App\Http\Controllers\Admin\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,4 +106,19 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('/seo', [SeoController::class, 'index'])->name('seo.index');
     Route::get('/edit-seo/{url}', [SeoController::class, 'edit'])->name('seo.edit');
     Route::post('/edit-seo', [SeoController::class, 'update'])->name('seo.update');
+
+      //service route
+      Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+      Route::get('/add-service', [ServiceController::class, 'create'])->name('service.create');
+      Route::post('/save-service', [ServiceController::class, 'store'])->name('service.store');
+      Route::get('/edit-service/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+      Route::post('/update-service', [ServiceController::class, 'update'])->name('service.update');
+      Route::get('/delete-service/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
+
+      //
+      Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+      Route::get('/add-gallery', [GalleryController::class, 'create'])->name('gallery.create');
+      Route::post('/save-gallery', [GalleryController::class, 'store'])->name('gallery.store');
+      Route::get('/delete-gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    
 });

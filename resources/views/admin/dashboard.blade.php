@@ -28,15 +28,15 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ _get_data_count_with_table_name('contact_us_pages') }}</h3>
+                                <h3>{{ _get_data_count_with_table_name('get_quotes') }}</h3>
 
                                 <p>Get Quotes Request</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person"></i>
+                                <i class="ion-person"></i>
                             </div>
                             <a href="{{ route('admin.quotes.index') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                    class="ion-arrow-right-c"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -44,15 +44,15 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{ _get_data_count_with_table_name('get_quotes') }}</h3>
+                                <h3>{{ _get_data_count_with_table_name('contact_us_page_forms') }}</h3>
 
                                 <p>All Contact Us Page Form Request</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
+                                <i class="ion-stats-bars"></i>
                             </div>
                             <a href="{{ route('admin.contact-form.index') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                    class="ion-arrow-right-c"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -65,10 +65,10 @@
                                 <p>Total Pages</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="ion-document-text"></i>
                             </div>
                             <a href="{{ route('admin.menu.index') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                    class="ion-arrow-right-c"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -81,10 +81,10 @@
                                 <p>Total Blog</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                <i class="ion-pie-graph"></i>
                             </div>
                             <a href="{{ route('admin.blog.index') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                                    class="ion-arrow-right-c"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -93,7 +93,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header text-center">
-                                <h3 class="card-title text-center"><strong class="text-center">All ({{ \Carbon\Carbon::parse($today_date)->format('d M Y') }}) Contact Us Page Form Data</strong></h3>
+                                <h3 class="card-title text-center"><strong class="text-center">All
+                                        ({{ \Carbon\Carbon::parse($today_date)->format('d M Y') }}) Contact Us Page Form
+                                        Data</strong></h3>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -116,7 +118,8 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td>{{ $item->message }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -130,7 +133,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"><strong>All ({{ \Carbon\Carbon::parse($today_date)->format('d M Y') }}) Quotes Request</strong></h3>
+                                <h3 class="card-title"><strong>All
+                                        ({{ \Carbon\Carbon::parse($today_date)->format('d M Y') }}) Quotes Request</strong>
+                                </h3>
                             </div>
                             <div class="card-body">
                                 <table id="example2" class="table table-bordered table-striped">
@@ -153,7 +158,8 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td>{{ $item->message }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -184,14 +190,18 @@
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "order": [[0, 'desc']]
+                "order": [
+                    [0, 'desc']
+                ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $("#example2").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "order": [[0, 'desc']]
+                "order": [
+                    [0, 'desc']
+                ]
             }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
         });
     </script>

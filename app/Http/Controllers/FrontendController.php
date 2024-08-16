@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Blogs;
 use App\Models\ContactUsPageForm;
+use App\Models\Gallery;
 use App\Models\GetQuote;
 use App\Models\Menu;
 use App\Models\Pages;
+use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Spatie\Sitemap\Sitemap;
@@ -19,6 +21,8 @@ class FrontendController extends Controller
         if (!$page) {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->get()->take(3);
             $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
+            $data['services'] = Service::orderBy('id', 'desc')->get()->take(10);
+            $data['galleries'] = Gallery::orderBy('id', 'desc')->get()->take(12);
             return view('frontend.index', $data);
         } else if ($page == 'contact-us') {
             return view('frontend.contact-us');
@@ -31,7 +35,7 @@ class FrontendController extends Controller
             $sitemap->add(Url::create('/')
                 ->setLastModificationDate(now())
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                ->setPriority(0.80));
+                ->setPriority(1.00));
             $sitemap->add(Url::create('/blog')
                 ->setLastModificationDate(now())
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)

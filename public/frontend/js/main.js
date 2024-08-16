@@ -234,3 +234,13 @@ $(".slider_box").slick({
   autoplay: true,
   autoplaySpeed: 6000,
 });
+$(".solutions_items").slick({
+  dots: false,
+  infinite: true,
+  speed: 3000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+});

@@ -38,6 +38,22 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">All Quotes</h3>
+                                <form method="GET" action="{{ route('admin.quotes.index') }}">
+                                    <div class="row">
+                                        <div class="col-5"></div>
+                                        <div class="col-3">
+                                            <label for="">Start Date</label>
+                                            <input type="date" name="start_date" required class="form-control" value="{{ app('request')->input('start_date') }}">
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="">End Date</label>
+                                            <input type="date" name="end_date"  required class="form-control" value="{{ app('request')->input('end_date') }}">
+                                        </div>
+                                        <div class="col-1">
+                                            <input type="submit" value="Filter" class="btn btn-warning" style="margin-top: 32px;">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -60,7 +76,8 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td>{{ $item->message }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y, h:i A') }}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -91,7 +108,9 @@
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "order": [[0, 'desc']]
+                "order": [
+                    [0, 'desc']
+                ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
