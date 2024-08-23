@@ -261,7 +261,7 @@
                         <div class="news_title">
                             <h6 style="color:{{ $background_color }} !important;">{{ _get_index_page_value('FAQ_TEXT') }}
                             </h6>
-                            <P>{{ _get_index_page_value('FAQ_DESCRIPTION') }}</P>
+                            <p style="font-size:30px">{{ _get_index_page_value('FAQ_DESCRIPTION') }}</p>
                         </div>
                     </div>
                     <div class="col-md-12">

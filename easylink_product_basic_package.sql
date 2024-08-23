@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2024 at 07:03 PM
+-- Generation Time: Aug 17, 2024 at 05:17 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -67,6 +67,16 @@ CREATE TABLE `contact_us_pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contact_us_pages`
+--
+
+INSERT INTO `contact_us_pages` (`id`, `key`, `value`, `value_type`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'BANNER_IMAGE', '1722668827.jpg', '2', '1', '2024-07-23 04:12:17', '2024-08-02 20:07:07'),
+(2, 'SEC_1_TEXT', 'Lorem Ipsum', '1', '1', '2024-07-23 04:22:45', '2024-07-23 04:22:45'),
+(3, 'SEC_1_DESCRIPTION', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum', '1', '1', '2024-07-23 04:23:15', '2024-07-23 04:25:30'),
+(4, 'SEC_2_FORM_TEXT', 'Lorem ipsum', '1', '1', '2024-07-23 04:24:55', '2024-07-23 04:24:55');
 
 -- --------------------------------------------------------
 
@@ -641,7 +651,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `contact_us_pages`
 --
 ALTER TABLE `contact_us_pages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contact_us_page_forms`

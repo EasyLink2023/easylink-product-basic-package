@@ -126,7 +126,8 @@ class FrontendController extends Controller
             $add->phone = $request->phone;
             $add->message = $request->message;
             $add->save();
-            return redirect()->back()->with(['success-contact' => 'Contact Us Request Added Successfully']);
+            $message = _get_contact_us_page_data('FORM_REQUEST_SAVE_RESPONSE');
+            return redirect()->back()->with(['success-contact' => $message]);
         } catch (\Throwable $th) {
             return redirect()->back()->with(['error-contact' => $th->getMessage()]);
         }

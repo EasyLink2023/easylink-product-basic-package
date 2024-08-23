@@ -516,7 +516,7 @@ header.back {
   /* transition: all 0.3s ease-out; */
 }
 header.back nav#main_navbar ul.navbar-nav li a.nav-link {
-  color: #242323 !important;
+  color: #242323 ;
 }
 .inner_nav .top_nav ul.top_ul li.top_li:not(:last-child) {
   border-right: 1px solid #ffffff;
@@ -545,7 +545,7 @@ header.back .top_nav ul.top_ul li i {
 }
 ul.navbar-nav li a.nav-link {
   text-transform: uppercase;
-  color: #242323 !important;
+  color: #242323 ;
   font-weight: 600;
   padding: 20px 0px !important;
   font-size: 17px;
@@ -1385,6 +1385,10 @@ ul.stars li:not(:last-child) {
   right: 0;
   margin: auto;
   top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .testimonial_title h6 {
   color: #ffffff;
@@ -2666,4 +2670,7 @@ ul.news_own li i {
   width: 20px;
   height: 20px;
   color: #fff;
+}
+.news_title h6{
+  font-size:40px
 }
