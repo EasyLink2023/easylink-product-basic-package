@@ -87,9 +87,7 @@
     }
 }
 @media screen and (max-width: 767.98px) {
-    ul.navbar-nav li a.nav-link {
-        color: #fff !important;
-    }
+    
     .banner_content h1 {
         font-size: 35px;
     }
@@ -133,11 +131,9 @@
     .testimonial_slider_item_content span {
         font-size: 20px;
     }
-    .nav_contact:before {
-        display:none;
-    }
+    
     nav#main_navbar {
-        padding: 16px 0 19px;
+        padding: 10px 0 10px;
     }
     .banner {
         padding: 125px 0 20px;
@@ -152,7 +148,96 @@
         top: 4px;
     }
     .get_quote button {
-        padding: 15px 17px;
-        font-size: 15px;
+        padding: 15px 15px;
+        font-size: 14px;
     }
+    .inner_banner_content {
+        bottom: 55px;
+    }
+    .banner_content_text {
+        bottom: 7em;
+    }
+    .banner_content_text h1 {
+        font-size: 35px;
+    }
+    .banner_content_text p {
+        font-size: 16px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    /* .inner_banner {
+        padding-top: 5em;
+    } */
+    .inner_banner_image img {
+        height: 335px;
+    }
+    .navbar-brand img {
+        width: 100px;
+        height: 60px;
+        object-fit: contain;
+    }
+
+
+
+
+}
+@media screen and (max-width: 991.9px) {
+    .nav_contact:before {
+        display:none;
+    }
+    ul.navbar-nav li a.nav-link {
+        color: #fff !important;
+    }
+    
+
+}
+
+@media screen and (min-width: 768.98px) {
+    .inner_banner_image img {
+        height: 560px;
+    }
+    
+
+
+}
+
+.inner_banner_image img {
+    object-fit: cover;
+    overflow: hidden;
+}
+.footer_address_logo a img{
+    height: 86px;
+    object-fit: contain;
+}
+
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 992px) and (max-width: 1199.9px) {
+
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .nav_contact {
+        right: 6em;
+    }
+    .menu-btn {
+        top: 33px;
+    }
+    .banner_content h1 {
+        font-size: 38px;
+    }
+    .banner {
+        padding: 95px 0;
+    }
+    .banner_slider img {
+        object-fit: cover;
+        border: 0px;
+    }
+    .key_point .container .row .col-md-3{
+        width: 33.33% !important;
+        margin-bottom: 2em;
+    }
+}
+@media screen and (max-width: 991.98px) {
+
 }

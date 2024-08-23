@@ -62,7 +62,7 @@
     @if (_get_index_page_value('SEC_3_VISIBLE') == '1')
         <div class="key_point" style="background:{{ $background_color }} !important;">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-3">
                         <div class="key_point_box">
                             <span data-max="{{ _get_index_page_value('SEC_3_NUMBER_1') }}"
@@ -261,15 +261,15 @@
                         <div class="news_title">
                             <h6 style="color:{{ $background_color }} !important;">{{ _get_index_page_value('FAQ_TEXT') }}
                             </h6>
-                            <p style="font-size:30px">{{ _get_index_page_value('FAQ_DESCRIPTION') }}</p>
+                            <P style="font-size:30px">{{ _get_index_page_value('FAQ_DESCRIPTION') }}</P>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="row">
                             @if (isset($faqs) && count($faqs) > 0)
-                                <div class="col-md-8 mx-auto mb-4">
+                                <div class="col-md-10 mx-auto mb-4">
                                     @foreach ($faqs as $key => $item)
-                                        <div class="accordion mb-2" id="accordion{{ $key }}">
+                                        <div class="accordion mb-3" id="accordion{{ $key }}">
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading{{ $key }}">
                                                     <button class="accordion-button" type="button"
