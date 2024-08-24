@@ -85,6 +85,8 @@ class FrontendController extends Controller
 
     public function blogDeatil($slug)
     {
+        $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
+        $data['font_color'] = _get_setting_value('FONT_COLOR');
         $data['blog'] = Blogs::where('slug', $slug)->first();
         return view('frontend.blog-detail', $data);
     }
