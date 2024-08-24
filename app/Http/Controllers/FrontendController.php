@@ -21,15 +21,24 @@ class FrontendController extends Controller
     {
         $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
         $data['font_color'] = _get_setting_value('FONT_COLOR');
+        $active_template = _get_setting_value('TEMPLATE_NUMBER');
         if (!$page) {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->get()->take(3);
             $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
             $data['services'] = Service::orderBy('id', 'desc')->get()->take(10);
             $data['galleries'] = Gallery::orderBy('id', 'desc')->get()->take(12);
             $data['faqs'] = Faqs::orderBy('id', 'desc')->get();
-            return view('frontend.index', $data);
+            if ($active_template == '2') {
+                return view('frontend.template2.index', $data);
+            } else {
+                return view('frontend.index', $data);
+            }
         } else if ($page == 'contact-us') {
-            return view('frontend.contact-us', $data);
+            if ($active_template == '2') {
+                return view('frontend.template2.contact-us', $data);
+            } else {
+                return view('frontend.contact-us', $data);
+            }
         } else if ($page == 'login') {
             return view('auth.login', $data);
         } else if ($page == 'sitemap') {
@@ -63,7 +72,11 @@ class FrontendController extends Controller
             return $sitemap->writeToFile(public_path('sitemap.xml'));
         } else if ($page == 'blog') {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->paginate(9);
-            return view('frontend.blog', $data);
+            if ($active_template == '2') {
+                return view('frontend.template2.blog', $data);
+            } else {
+                return view('frontend.blog', $data);
+            }
         } else {
             $menu = Menu::where('url', $page)->first();
             if ($menu) {
@@ -87,8 +100,13 @@ class FrontendController extends Controller
     {
         $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
         $data['font_color'] = _get_setting_value('FONT_COLOR');
+        $active_template = _get_setting_value('TEMPLATE_NUMBER');
         $data['blog'] = Blogs::where('slug', $slug)->first();
-        return view('frontend.blog-detail', $data);
+        if ($active_template == '2') {
+            return view('frontend.template2.blog-detail', $data);
+        } else {
+            return view('frontend.blog-detail', $data);
+        }
     }
 
     public function addQuote(Request $request)
