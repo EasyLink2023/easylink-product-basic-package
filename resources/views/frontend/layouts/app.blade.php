@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}"
         type="image/x-icon">
     <link rel="icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('FAVICON') }}" type="image/gif">
-    @if (_get_setting_value('TEMPLATE_NUMBER') == '2')
+    @if (_get_default_template() == 2)
         {{-- new fonet --}}
     @else
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/font/uicons-regular-rounded/css/uicons-regular-rounded.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/font/uicons-solid-rounded/css/uicons-solid-rounded.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/font/uicons-brands/css/uicons-brands.css') }}" />
-    @if (_get_setting_value('TEMPLATE_NUMBER') == '2')
+    @if (_get_default_template() == 2)
         <link rel="stylesheet" href="{{ asset('frontend/css/template2/style.css') }}" />
         <link rel="stylesheet" href="{{ asset('frontend/css/template2/responsive.css') }}" />
     @else
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    @if (_get_setting_value('TEMPLATE_NUMBER') == '2')
+    @if (_get_default_template() == 2)
         @include('frontend.layouts.template2.header')
         @yield('content')
         @include('frontend.layouts.template2.footer')
@@ -54,7 +54,7 @@
     <script src="{{ asset('frontend/plugins/slick/slick.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/select_bootstrap/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/typed/js/typed.min.js') }}"></script>
-    @if (_get_setting_value('TEMPLATE_NUMBER') == '2')
+    @if (_get_default_template() == 2)
         <script src="{{ asset('frontend/js/template2/main.js') }}"></script>
     @else
         <script src="{{ asset('frontend/js/main.js') }}"></script>

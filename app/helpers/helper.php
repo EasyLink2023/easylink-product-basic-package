@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Menu;
+use App\Models\User;
 use App\Models\IndexPage;
 use App\Models\pageSeoData;
 use App\Models\ContactUsPage;
@@ -46,5 +47,12 @@ if(!function_exists('_get_data_count_with_table_name')) {
     function _get_data_count_with_table_name($table_name) {
         $value = DB::table($table_name)->count();
         return $value;
+    }
+}
+
+if(!function_exists('_get_default_template')) {
+    function _get_default_template() {
+        $value = User::where('id', '1')->first();
+        return $value->default_template ?? 1;
     }
 }

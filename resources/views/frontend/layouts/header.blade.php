@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg" id="main_navbar">
             <a class="navbar-brand" href="{{ route('index')  }}">
                 <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}" class="img-fluid"
-                    id="logo" alt="logo" onerror="this.src='{{ asset('frontend/default-images/default-image-329x129.jpg') }}'" />
+                    id="logo" alt="logo" onerror="this.src='{{ asset('frontend/default-images/logo.png.webp') }}'" />
             </a>
             <div class="menu-btn d-lg-none navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">

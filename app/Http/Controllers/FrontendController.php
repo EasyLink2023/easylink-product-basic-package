@@ -21,20 +21,20 @@ class FrontendController extends Controller
     {
         $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
         $data['font_color'] = _get_setting_value('FONT_COLOR');
-        $active_template = _get_setting_value('TEMPLATE_NUMBER');
+        $active_template = _get_default_template() ?? 1;
         if (!$page) {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->get()->take(3);
             $data['testimonials'] = Testimonial::orderBy('id', 'desc')->get()->take(5);
             $data['services'] = Service::orderBy('id', 'desc')->get()->take(10);
             $data['galleries'] = Gallery::orderBy('id', 'desc')->get()->take(12);
             $data['faqs'] = Faqs::orderBy('id', 'desc')->get();
-            if ($active_template == '2') {
+            if ($active_template == 2) {
                 return view('frontend.template2.index', $data);
             } else {
                 return view('frontend.index', $data);
             }
         } else if ($page == 'contact-us') {
-            if ($active_template == '2') {
+            if ($active_template == 2) {
                 return view('frontend.template2.contact-us', $data);
             } else {
                 return view('frontend.contact-us', $data);
@@ -72,7 +72,7 @@ class FrontendController extends Controller
             return $sitemap->writeToFile(public_path('sitemap.xml'));
         } else if ($page == 'blog') {
             $data['blogs'] = Blogs::orderBy('id', 'desc')->paginate(9);
-            if ($active_template == '2') {
+            if ($active_template == 2) {
                 return view('frontend.template2.blog', $data);
             } else {
                 return view('frontend.blog', $data);
@@ -100,9 +100,8 @@ class FrontendController extends Controller
     {
         $data['background_color'] = _get_setting_value('BACKGROUND_COLOR');
         $data['font_color'] = _get_setting_value('FONT_COLOR');
-        $active_template = _get_setting_value('TEMPLATE_NUMBER');
         $data['blog'] = Blogs::where('slug', $slug)->first();
-        if ($active_template == '2') {
+        if (_get_default_template() == 2) {
             return view('frontend.template2.blog-detail', $data);
         } else {
             return view('frontend.blog-detail', $data);

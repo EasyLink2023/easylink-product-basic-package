@@ -73,9 +73,9 @@
                 <div class="footer_address">
                     <div class="footer_address_content">
                         <div class="footer_address_logo">
-                            <a href="">
+                            <a href="{{ url('/') }}">
                                 <img src="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}"
-                                    alt="logo" class="img-fluid" />
+                                    alt="logo" class="img-fluid" onerror="this.src='{{ asset('frontend/default-images/logo.png.webp') }}'"/>
                             </a>
                         </div>
                         <div class="footer_address">

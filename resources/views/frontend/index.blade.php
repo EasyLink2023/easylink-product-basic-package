@@ -95,7 +95,7 @@
             </div>
         </div>
     @endif
-    @if (_get_index_page_value('SEC_4_VISIBLE') == '1')
+    @if (_get_index_page_value('BLOG_VISIBLE') == '1')
         <div class="news">
             <div class="container">
                 <div class="row">
@@ -181,7 +181,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="news_title">
-                            <h4>{{ _get_index_page_value('SERVICE_TEXT') }}</h4>
+                            <h4>{{ _get_index_page_value('GALLERY_TEXT') }}</h4>
                             <P>{{ _get_index_page_value('GALLERY_DESCRIPTION') }}</P>
                         </div>
                     </div>
