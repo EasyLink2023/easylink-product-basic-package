@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
         //Profile
         Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
         Route::post('/profile-update', [DashboardController::class, 'profileUpdate'])->name('profile.update');
-        Route::post('/password-change', [DashboardController::class, 'passwordUpdate'])->name('password.update');
+        Route::post('/password-change', [DashboardController::class, 'changePassword'])->name('password.update');
         // General Setting
         Route::get('/setting', [GeneralSettingController::class, 'index'])->name('setting.index');
         Route::get('/add-setting', [GeneralSettingController::class, 'create'])->name('setting.create');

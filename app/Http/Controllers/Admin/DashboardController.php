@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\ContactUsPageForm;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -50,6 +51,13 @@ class DashboardController extends Controller
     {
         return view('admin.template.change');
     }
+
+    public function profile()
+    {
+        $data['user'] = Auth::user();
+        return view('admin.profile.index', $data);
+    }
+
     public function update (Request $request)
     {
         try{
@@ -67,7 +75,43 @@ class DashboardController extends Controller
             return redirect()->back()->with('success', 'Template selected successfully');
         }
         catch(Throwable $th) {
-            return redirect()->back()->with('error', 'Template selected successfully');
+            return redirect()->back()->with('error', 'Error making update');
         }
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        try{
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+            ]);
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->save();
+            return redirect()->back()->with('success', 'Profile updated successfully');
+        }
+        catch(Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        if (!Hash::check($request->input('old_password'), $user->password)) {
+            return redirect()->back()->with('error', 'Old password is incorrect');
+        }
+        $user->password = Hash::make($request->input('new_password'));
+        $user->is_password_changed = 1;
+        $user->save();
+        return redirect()->back()->with('success', 'Password changed successfully!');
     }
 }
