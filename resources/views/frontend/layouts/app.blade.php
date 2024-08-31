@@ -14,13 +14,22 @@
     <link rel="shortcut icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('SITE_LOGO') }}"
         type="image/x-icon">
     <link rel="icon" href="{{ asset('asset/setting') }}/{{ _get_setting_value('FAVICON') }}" type="image/gif">
+    
     @if (_get_default_template() == 2)
-        {{-- new fonet --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        
+        <!-- Minimize FontAwesome and Lightbox CSS load -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/92+9c6Q7ksy7r2l/smg+H7K4+gj8mFzqfTzA2A" crossorigin="anonymous" /> -->
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/+q33W4wDG0mkt0Lyb7zD4+5pvephUvhzqs/jgKpt8Gh4lZG/GPy6h9wN" crossorigin="anonymous" /> -->
+        <link rel="stylesheet" href="{{ asset('frontend/plugins/lightbox/css/lightbox.min.css') }}" />
+
     @else
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;800&display=swap"
-            rel="stylesheet" />
+         rel="stylesheet" />
     @endif
     <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/plugins/slick/slick.css') }}" />
@@ -55,7 +64,8 @@
     <script src="{{ asset('frontend/plugins/select_bootstrap/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/typed/js/typed.min.js') }}"></script>
     @if (_get_default_template() == 2)
-        <script src="{{ asset('frontend/js/template2/main.js') }}"></script>
+        <script src="{{ asset('frontend/plugins/lightbox/js/lightbox.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/template2/main.js') }}" ></script>
     @else
         <script src="{{ asset('frontend/js/main.js') }}"></script>
     @endif

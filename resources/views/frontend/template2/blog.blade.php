@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-12">
-                        <div class="banner_content_text">
+                        <div class="banner_content_text pt-5">
                             <h1>{{ _get_setting_value('BLOG_SEC_1_TEXT') }}</h1>
                             <p>
                                 {{ _get_setting_value('BLOG_SEC_1_DESCRIPTION') }}

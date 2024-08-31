@@ -11,9 +11,9 @@
         </div>
         <div class="inner_banner_content">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="banner_content_text">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-10">
+                        <div class="banner_content_text pt-5">
                             <h1>{{ _get_contact_us_page_data('SEC_1_TEXT') }}</h1>
                             <p>
                                 {{ _get_contact_us_page_data('SEC_1_DESCRIPTION') }}
@@ -32,10 +32,10 @@
             </div>
         </div>
     </div>
-    <div class="order_online">
+    <div class="contact py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-7">
+            <div class="row g-5 justify-content-center">
+                <div class="col-md-10">
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -55,50 +55,51 @@
                             {{ Session::get('success-contact') }}
                         </div>
                     @endif
-                    <div class="order_online_title">
-                        <h2 style="color:{{ $background_color }} !important;">{{ _get_contact_us_page_data('SEC_2_FORM_TEXT') }}</h2>
-                    </div>
-                    <div class="order_online_form">
-                        <div class="getquote_form_box">
-                            <form action="{{ route('add.contact.form') }}" method="POST"
-                                class="row justify-content-center g-3 needs-validation">
-                                @csrf
-                                <div class="col-md-4">
-                                    <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="name" id="Name"
-                                        placeholder="Name" required>
+                    <div class="bg-light p-5 rounded h-100">
+                        <h2 style="color:{{ $background_color }} !important;" class="pb-4">{{ _get_contact_us_page_data('SEC_2_FORM_TEXT') }}</h2>
+                        <form action="{{ route('add.contact.form') }}" method="POST" class="row g-4 needs-validation d-flex justify-content-center">
+                            @csrf
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" name="name" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
                                     <div class="invalid-feedback">
                                         Please enter your name.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="Email" class="form-label">Email <span
-                                            class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email" id="Email"
-                                        placeholder="Email" required>
+                            </div>
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control border-0" name="email" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
                                     <div class="invalid-feedback">
                                         Please enter your email.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="Phone" class="form-label">Phone <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="phone" id="Phone"
-                                        placeholder="Phone" required>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" name="phone" id="phone" placeholder="Your Phone" required>
+                                    <label for="phone">Your Phone</label>
                                     <div class="invalid-feedback">
-                                        Please enter your phone no.
+                                        Please enter your phone number.
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <label for="Message" class="form-label">Message</label>
-                                    <textarea class="form-control" name="message" id="Message" rows="2" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" name="message" id="message" placeholder="Leave a message here" style="height: 160px"></textarea>
+                                    <label for="message">Message</label>
                                 </div>
-                                <button id="fromSubmit" type="submit" style="background:{{ $background_color }} !important;color:{{ $font_color }}">Submit</button>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="col-4">
+                                <button id="fromSubmit" type="submit" class="btn btn-primary w-100 py-3" style="background:{{ $background_color }} !important;color:{{ $font_color }}">Send Message</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
