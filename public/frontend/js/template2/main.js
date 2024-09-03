@@ -1,9 +1,21 @@
+
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(window).width() > 992) {
+            if ($(this).scrollTop() > 45) {
+                $('.sticky-top .container').addClass('shadow-sm').css('max-width', '100%');
+            } else {
+                $('.sticky-top .container').removeClass('shadow-sm').css('max-width', $('.topbar .container').width());
+            }
+        } else {
+            $('.sticky-top .container').addClass('shadow-sm').css('max-width', '100%');
+        }
+    });
+});
+
+
 jQuery(document).ready(function () {
   var btn = jQuery("#button");
-  var header = jQuery("header");
-  var logo = jQuery("#logo");
-  var oldSrc = logo.attr("src");
-  var src = logo.attr("src");
    // Spinner
    var spinner = function () {
     setTimeout(function () {
@@ -11,39 +23,15 @@ jQuery(document).ready(function () {
             $('#spinner').removeClass('show');
         }
     }, 1);
-};
-spinner(0);
+   };
+   spinner(0);
+
+    
   jQuery(window).scroll(function () {
     if (jQuery(window).scrollTop() > 300) {
       btn.addClass("show");
     } else {
       btn.removeClass("show");
-    }
-  });
-  if (jQuery(window).scrollTop() > 10) {
-    if (src && src.indexOf("_white") !== -1) {
-      var newSrc = src.replace("_white", "");
-      logo.attr("src", newSrc);
-    }
-    header.addClass("back");
-  } else {
-    header.removeClass("back");
-    if (src && src.indexOf("_white") !== -1) {
-      logo.attr("src", oldSrc);
-    }
-  }
-  jQuery(window).scroll(function () {
-    if (jQuery(window).scrollTop() > 10) {
-      if (src && src.indexOf("_white") !== -1) {
-        var newSrc = src.replace("_white", "");
-        logo.attr("src", newSrc);
-      }
-      header.addClass("back");
-    } else {
-      header.removeClass("back");
-      if (src && src.indexOf("_white") !== -1) {
-        logo.attr("src", oldSrc);
-      }
     }
   });
   btn.on("click", function (e) {
@@ -55,70 +43,10 @@ spinner(0);
       "300"
     );
   });
-  var tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  );
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
-  });
 
 });
 
-function animate(element) {
-    if (!element.hasClass("ms-animated")) {
-      var maxval = element.data("max");
-      var html = element.html();
-      element.addClass("ms-animated");
-      $({
-        countNum: element.html(),
-      }).animate(
-        {
-          countNum: maxval,
-        },
-        {
-          duration: 5000,
-          easing: "linear",
-          step: function () {
-            element.html(Math.floor(this.countNum) + html);
-          },
-          complete: function () {
-            element.html(this.countNum + html);
-          },
-        }
-      );
-    }
-  }
-  $(function () {
-    if (jQuery(window).scrollTop() > 100) {
-      $("h3[data-max]").each(function () {
-        inVisible($(this));
-      });
-      $("span[data-max]").each(function () {
-        inVisible($(this));
-      });
-    }
-    $(window).scroll(function () {
-      $("h3[data-max]").each(function () {
-        inVisible($(this));
-      });
-      $("span[data-max]").each(function () {
-        inVisible($(this));
-      });
-    });
-  });
-  
-  $(".banner_slider").slick({
-  dots: false,
-  infinite: true,
-  speed: 700,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  fade: true,
-  cssEase: "linear",
-});
+
 jQuery(function () {
   const val = $('#sec_two_text').val();
   jQuery(".texttyp").typed({
@@ -129,9 +57,22 @@ jQuery(function () {
     loop: false,
   });
 });
+  
+  $(".banner_slider").slick({
+    dots: false,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    fade: true,
+    cssEase: "linear",
+});
 
 window.addEventListener('load', function () {
-  $(".training_items").slick({
+  $(".service_items").slick({
       dots: false,
       infinite: true,
       speed: 3000,
@@ -174,3 +115,52 @@ $(document).ready(function() {
   });
 });
 
+function inVisible(element) {
+  var WindowTop = $(window).scrollTop();
+  var WindowBottom = WindowTop + $(window).height();
+  var ElementTop = element.offset().top;
+  var ElementBottom = ElementTop + element.height();
+
+  // Check if the element is in the viewport
+  if (ElementBottom <= WindowBottom && ElementTop >= WindowTop) {
+    animate(element);
+  }
+}
+
+function animate(element) {
+  if (!element.hasClass("ms-animated")) {
+    var maxval = element.data("max");
+    element.addClass("ms-animated");
+    
+    // Ensure countNum is a number to avoid concatenation issues
+    $({ countNum: 0 }).animate(
+      { countNum: maxval },
+      {
+        duration: 5000,
+        easing: "linear",
+        step: function () {
+          element.html(Math.floor(this.countNum));
+        },
+        complete: function () {
+          element.html(this.countNum);
+        },
+      }
+    );
+  }
+}
+
+$(function () {
+  function checkVisibleElements() {
+    $("span[data-max]").each(function () {
+      inVisible($(this));
+    });
+  }
+
+  // Initial check if the page is already scrolled down
+  checkVisibleElements();
+
+  // Check when the user scrolls
+  $(window).scroll(function () {
+    checkVisibleElements();
+  });
+});

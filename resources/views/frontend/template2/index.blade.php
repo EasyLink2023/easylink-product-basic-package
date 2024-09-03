@@ -3,7 +3,7 @@
 @section('content')
     @if (_get_index_page_value('SEC_1_VISIBLE') == '1')
         <div class="banner_section" page-name="index" id="page">
-            <div class="">
+            <div >
                 <div id="main_slider" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -26,13 +26,15 @@
                         </div>
                     </div>
                     <div class="carousel-caption d-none d-md-block">
-                        <h1 class="banner_taital">{{ _get_index_page_value('SEC_1_TEXT') }}</h1>
-                        <p class="banner_text">{{ _get_index_page_value('SEC_1_DESCRIPTION') }}</p>
-                        <div class="read_bt">
-                            <a href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}"
-                                style="color:{{ $font_color }} !important; background-color:{{ $background_color }} !important;">
-                                {{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}
-                            </a>
+                        <div class="container">
+                            <h1 class="banner_text">{{ _get_index_page_value('SEC_1_TEXT') }}</h1>
+                            <p class="banner_caption">{{ _get_index_page_value('SEC_1_DESCRIPTION') }}</p>
+                            <div class="read_bt">
+                                <a href="{{ _get_index_page_value('SEC_1_BUTTON_LINK') }}"
+                                    style="color:{{ $font_color }} !important; background-color:{{ $background_color }} !important;">
+                                    {{ _get_index_page_value('SEC_1_BUTTON_TEXT') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#main_slider" role="button" data-bs-slide="prev">
@@ -47,12 +49,11 @@
             </div>
         </div>
     @endif
-
     @if (_get_index_page_value('SEC_2_VISIBLE') == '1')
-        <div class="" style="margin-top: 6rem;">
-            <div class="container pb-5">
+        <div class="about-sec">
+            <div class="container">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 ">
+                    <div class="col-md-6 ">
                         <div >
                             <img src="{{ asset('asset/index-page') . '/' . _get_index_page_value('SEC_1_IMAGE_2') }}"
                                 class="img img-fluid"
@@ -60,22 +61,20 @@
                                 onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h1 class=" mb-4" style="color:{{ $background_color }} !important;">
-                            {{ _get_index_page_value('SEC_2_TEXT') }}
-                        </h1>
-                        <p class="mb-4" >
-                            {{ _get_index_page_value('SEC_2_DESCRIPTION') }}
-                        </p>
+                    <div class="col-md-6">
+                        <div class="about-text">
+                            <input type="hidden" value="{{ _get_index_page_value('SEC_2_TEXT') }}" id="sec_two_text">
+                            <h2 class="texttyp mb-4" style="color:{{ $background_color }} !important;">
+                            </h2>
+                            <p >
+                                {{ _get_index_page_value('SEC_2_DESCRIPTION') }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     @endif
-
-    
-
-
     @if (_get_index_page_value('SEC_3_VISIBLE') == '1')
         <style>
             .feature .feature-item {
@@ -94,8 +93,8 @@
                 transition: color 0.3s ease;
             }
         </style>
-        <div class="feature pb-5" >
-            <div class="container pb-5">
+        <div class="feature" >
+            <div class="container">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="feature-item p-4">
@@ -145,11 +144,8 @@
             </div>
         </div>
     @endif
-
-
-    
     @if (_get_index_page_value('BLOG_VISIBLE') == '1')
-        <div class="blog pb-5">
+        <div class="blog">
             <div class="container">
                 <div class="news_hd">
                     <h4 style="color:{{ $background_color }} !important;"> Blogs</h4>
@@ -164,11 +160,11 @@
                                             <img src="{{ asset('asset/blogs') . '/' . $item->cover_image }}"
                                                 class="img-fluid w-100 rounded" alt="{{ $item->cover_image }}"
                                                 onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
-                                            <div class="blog-plus-icon">
+                                            <!-- <div class="blog-plus-icon">
                                                 <a href="{{ asset('asset/blogs') . '/' . $item->cover_image }}" data-lightbox="blog-{{ $loop->index }}" class="btn rounded-pill"  style="background: {{  $background_color }} ;line: height 14px;">
                                                     <i class="fi-rr-plus" style="vertical-align:middle;color:#fff"></i>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="news_item_content mt-3" style="background:{{ $background_color }} !important;">
                                             <span style="color:{{ $font_color }} !important">
@@ -190,14 +186,13 @@
             </div>
         </div>
     @endif
-
     @if (_get_index_page_value('SERVICE_VISIBLE') == '1')
         <style>
             .slick-prev:before, .slick-next:before{
                 color:{{  $background_color  }} ;
             }
         </style>
-        <div class="training py-5" >
+        <div class="service" >
             <div class="container">
                 <div class="section-title text-center mb-5">
                     <h1 class="display-5 mb-4" style="color: {{  $background_color  }} !important;">
@@ -207,19 +202,19 @@
                         {{ _get_index_page_value('SERVICE_DESCRIPTION') }}
                     </p>
                 </div>
-                <div class="training_items">
+                <div class="service_items">
                     @if (isset($services) && count($services) > 0)
                         @foreach ($services as $item)
-                            <div class="training-item">
-                                <div class="training-inner">
+                            <div class="service-item">
+                                <div class="service-inner">
                                     <img src="{{ asset('asset/service') . '/' . $item->cover_image }}"
                                         alt="{{ $item->cover_image }}" class="img-fluid w-100 rounded"  loading="lazy"
                                         onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
-                                    <div class="training-title-name">
+                                    <div class="service-title-name">
                                         <a class="h4 text-white mb-0">{{ $item->name }}</a>
                                     </div>
                                 </div>
-                                <div class="training-content bg-secondary rounded-bottom p-4">
+                                <div class="service-content bg-secondary rounded-bottom p-4">
                                     <p class="text-white-50">{{ $item->description }}</p>
                                 </div>
                             </div>
@@ -229,17 +224,16 @@
             </div>
         </div>
     @endif
-
     @if (_get_index_page_value('GALLERY_VISIBLE') == '1')
         <style>
-            .service .service-item::after {
+            .gallery .gallery-item::after {
                 background: {{$background_color }};
             }
             
         </style>
-        <div class="service py-5">
+        <div class="gallery">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-12">
                         <div class="news_title">
                             <h4 style="color: {{  $background_color  }} !important;">{{ _get_index_page_value('GALLERY_TEXT') }}</h4>
@@ -247,14 +241,19 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="row g-4">
+                        <div class="row g-4 justify-content-center">
                             @if (isset($galleries) && count($galleries) > 0)
                                 @foreach ($galleries as $item)
                                     <div class="col-md-6 col-lg-4">
-                                        <div class="service-item p-4">
+                                        <div class="gallery-item p-4">
                                             <img src="{{ asset('asset/gallery') . '/' . $item->image_url }}"
                                                 alt="{{ $item->image_url }}" class="img-fluid"
                                                 onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
+                                                <div class="gallery-plus-icon position-absolute top-50 start-50 translate-middle">
+                                                    <a href="{{ asset('asset/gallery') . '/' . $item->image_url }}" data-lightbox="gallery-{{ $loop->index }}" class="btn rounded-pill"  style="background: {{  $background_color }}; line-height: 14px;">
+                                                        <i class="fi-rr-plus" style="vertical-align:middle;color:#fff"></i>
+                                                    </a>
+                                                </div> 
                                             
                                         </div>
                                     </div>
@@ -266,10 +265,6 @@
             </div>
         </div>
     @endif
-
-    
-
-
     @if (_get_index_page_value('TESTIMONIAL_VISIBLE') == '1')
         <style>
             .client_img::after {
@@ -284,7 +279,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="testimonial_title mb-2">
+                        <div class="testimonial_title pb-4">
                             <h6>Testimonials</h6>
                         </div>
                     </div>
@@ -329,8 +324,6 @@
             </div>
         </div>
     @endif
-
-
     @if (_get_index_page_value('FAQ_VISIBLE') == '1')
         <style>
             .accordion-button:not(.collapsed) {
@@ -343,7 +336,7 @@
                 border: 3px solid  {{$background_color}} !important;
             }
         </style>
-        <div class="FAQ bg-light py-5 mb-4">
+        <div class="FAQ bg-light">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12">
@@ -392,5 +385,4 @@
             </div>
         </div>
     @endif
-
 @endsection

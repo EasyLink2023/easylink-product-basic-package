@@ -3,11 +3,9 @@
 @section('content')
     <div class="inner_banner">
         <div class="inner_banner_image">
-            <div class="container-fluid">
-                <img src="{{ asset('asset/contact-us') . '/' . _get_contact_us_page_data('BANNER_IMAGE') }}"
-                    alt="{{ _get_contact_us_page_data('BANNER_IMAGE') }}" class="img-fluid"
-                    onerror="this.src='{{ asset('frontend/default-images/default-image-1920x560.jpg') }}'" />
-            </div>
+            <img src="{{ asset('asset/contact-us') . '/' . _get_contact_us_page_data('BANNER_IMAGE') }}"
+                alt="{{ _get_contact_us_page_data('BANNER_IMAGE') }}" class="img-fluid"
+                onerror="this.src='{{ asset('frontend/default-images/default-image-1920x560.jpg') }}'" />   
         </div>
         <div class="inner_banner_content">
             <div class="container">
@@ -92,8 +90,8 @@
                                     <label for="message">Message</label>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <button id="fromSubmit" type="submit" class="btn btn-primary w-100 py-3" style="background:{{ $background_color }} !important;color:{{ $font_color }}">Send Message</button>
+                            <div class="col-lg-4 col-md-12">
+                                <button id="fromSubmit" type="submit" class="btn btn-primary w-100 py-3" style="background:{{ $background_color }} !important;color:{{ $font_color }};border:0px">Send Message</button>
                             </div>
                         </form>
                     </div>

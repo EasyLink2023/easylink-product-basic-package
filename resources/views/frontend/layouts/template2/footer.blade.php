@@ -69,7 +69,7 @@
 <footer>
     <div class=" container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-xl-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-xl-0 d-flex justify-content-lg-around">
                 <div class="footer_address">
                     <div class="footer_address_content">
                         <div class="footer_address_logo">
@@ -110,6 +110,85 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="footer_social">
+                            <ul>
+                                <li>
+                                    <a href="{{ _get_setting_value('X_LINK') }}" target="_blank">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ _get_setting_value('FACEBOOK_LINK') }}" target="_blank">
+                                        <span>
+                                            <i class="fi fi-brands-facebook"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ _get_setting_value('INSTAGRAM_LINK') }}" target="_blank">
+                                        <span>
+                                            <i class="fi fi-brands-instagram"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ _get_setting_value('LINKEDIN_LINK') }}" target="_blank">
+                                        <span>
+                                            <i class="fi fi-brands-linkedin"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ _get_setting_value('YOUTUBE_LINK') }}" target="_blank">
+                                        <span>
+                                            <i class="fi fi-brands-youtube"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-lg-0 d-flex justify-content-lg-around">
+                <div class="footer_links">
+                    <div class="footer_links_content">
+                        <span class="translate" style="color:{{ $background_color }} !important">Company</span>
+                        <ul class="menu">
+                            <li>
+                                <a href="{{ route('index', 'blog') }}">Blog</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('index', 'contact-us') }}">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-lg-0 d-flex justify-content-lg-around">
+                <div class="footer_links">
+                    <div class="footer_links_content">
+                        <span class="translate" style="color:{{ $background_color }} !important">Quick Links</span>
+                        <ul class="menu">
+                            @foreach (_get_all_menu() as $item)
+                                <li>
+                                    <a href="{{ route('index', $item->url) }}">{{ $item->menu_name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-3 mb-xl-0 d-flex justify-content-lg-around">
+                <div class="footer_address">
+                    <div class="footer_address_content">
+                        <div class="footer-social-content">
+                            <span class="translate" style="color:{{ $background_color }} !important">Follow Us</span>
+                        </div>                 
                         <div class="footer_social">
                             <ul>
                                 <li>
@@ -153,61 +232,23 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
-                <div class="footer_links">
-                    <div class="footer_links_content">
-                        <span class="translate" style="color:{{ $background_color }} !important">Company</span>
-                        <ul class="menu">
-                            <li>
-                                <a href="{{ route('index', 'blog') }}">Blog</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('index', 'contact-us') }}">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-3 mb-lg-0">
-                <div class="footer_links">
-                    <div class="footer_links_content">
-                        <span class="translate" style="color:{{ $background_color }} !important">Quick Links</span>
-                        <ul class="menu">
-                            @foreach (_get_all_menu() as $item)
-                                <li>
-                                    <a href="{{ route('index', $item->url) }}">{{ $item->menu_name }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>           
+            </div>         
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="footer_copyright justify-content-center" style="background: {{$background_color}}">
-            <div class="footer_copyright_content translate " style="color: {{$font_color}}">
-                <p >
-                    Copyright © <?php echo date('Y'); ?>. {{ _get_setting_value('FOOTER_TEXT') }}
-                    <a href="https://easylinkindia.com/" target="_blank">
-                        Easy Link
-                    </a>
-                </p>
+    <div class="footer_copyright" style="background: {{$background_color}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer_copyright_content translate " style="color: {{$font_color}}">
+                        <p >
+                            Copyright © <?php echo date('Y'); ?>. {{ _get_setting_value('FOOTER_TEXT') }}
+                            <a href="https://easylinkindia.com/" target="_blank">
+                                Easy Link
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            {{-- <div class="footer_copyright_link translate">
-                <ul>
-                    <li>
-                        <a href="">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="">Terms & Conditions</a>
-                    </li>
-                    <li>
-                        <a href="">Site Map</a>
-                    </li>
-                </ul>
-            </div> --}}
-        </div>
+        </div>  
     </div>
 </footer>

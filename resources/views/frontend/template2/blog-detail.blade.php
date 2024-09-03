@@ -6,7 +6,7 @@
 @section('content')
     <div class="inner_banner">
         <div class="inner_banner_image">
-            <div class="container-fluid">
+            <div class="container-fluid px-0">
                 <img src="{{ asset('asset/blogs') . '/' . $blog->cover_image }}" class="img-fluid"
                     alt="{{ $blog->cover_image }}"
                     onerror="this.src='{{ asset('frontend/default-images/default-image-1920x560.jpg') }}'" />
