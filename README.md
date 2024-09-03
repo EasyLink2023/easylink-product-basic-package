@@ -64,17 +64,17 @@ To ensure optimal performance, the server hosting EasyLinkProduct should meet or
 ## Installation Guide
 
 ### 1. Clone the Repository
--**git clone https://github.com/your-repo/easylinkproduct.git
+- git clone https://github.com/your-repo/easylinkproduct.git
 
 ### Install Composer Dependencies
--**npm install
+- npm install
 
 ### Set Up Environment Variables
--**cp .env.example .env
+- cp .env.example .env
 
 ###  Import the Database File
--**mysql -u username -p database_name < path/to/database.sql
+- mysql -u username -p database_name < path/to/database.sql
 
 ### Generate Application Key
--**php artisan key:generate
+- php artisan key:generate
 
