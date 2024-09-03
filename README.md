@@ -73,6 +73,7 @@ To ensure optimal performance, the server hosting EasyLinkProduct should meet or
 - cp .env.example .env
 
 ###  Import the Database File
+- easylink_product_basic_package-main.sql (file name)
 - mysql -u username -p database_name < path/to/database.sql
 
 ### Generate Application Key
