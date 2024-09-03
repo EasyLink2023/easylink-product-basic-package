@@ -23,6 +23,10 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         try {
+            $checkCount = Gallery::count();
+            if($checkCount >= 12) {
+                return redirect()->back()->with('error','You have added maximum number of gallery iamge '. $checkCount);
+            }
             $request->validate([
                 'image_url.*' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             ]);

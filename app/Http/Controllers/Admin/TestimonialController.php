@@ -22,6 +22,10 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         try {
+            $checkCount = Testimonial::count();
+            if($checkCount >= 4) {
+                return redirect()->back()->with('error','You have added maximum number of testimonial '. $checkCount);
+            }
             $blog = new Testimonial;
             $blog->name = $request->name;
             $blog->designation = $request->designation;
