@@ -59,7 +59,6 @@
                                                             onerror="this.src='{{ asset('frontend/default-images/default-image-358x436.jpg') }}'" />
                                                     </td>
                                                     <td>
-                                                    <td>
                                                         <a href="{{ route('admin.gallery.destroy', $item->id) }}"
                                                             class="btn btn-danger">Delete</a>
                                                     </td>
