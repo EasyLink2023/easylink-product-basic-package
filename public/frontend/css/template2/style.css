@@ -699,7 +699,7 @@ padding: 1em;
     object-fit: cover;
 }
 
-.client_img::after {
+/* .client_img::after {
     content: '';
     position: absolute;
     width: 180px;
@@ -707,7 +707,7 @@ padding: 1em;
     left: 0px;
     top: 0px;
     z-index: -1;
-}
+} */
 
 #testimonial_carousel .carousel-control-prev {
     position: absolute;
