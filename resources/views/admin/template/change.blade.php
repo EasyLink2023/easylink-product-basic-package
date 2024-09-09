@@ -44,12 +44,12 @@
                                             <option value="1" {{ Auth::user()->default_template == 1 ? 'selected' : '' }}>Template 1</option>
                                             <option value="2" {{ Auth::user()->default_template == 2 ? 'selected' : '' }}>Template 2</option>
                                         </select>
-                                        <small class="text-danger mt-2">Once template selected you can revert it.</small>
+                                        <small class="text-danger mt-2">When you select a Template you will not be able to change to another Template.</small>
                                     </div>
                                 </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" {{ Auth::user()->default_template != 1 ? 'disabled' : '' }} >Submit</button>
                         </div>
                         </form>
                     </div>
